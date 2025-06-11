@@ -194,6 +194,7 @@ p {
     position: fixed;
     top: 0;
     left: 0;
+    max-width:100%;
     width: 100%;
     background-color: var(--light);
     box-shadow: var(--shadow-sm);
