@@ -57,6 +57,7 @@ html {
 }
 
 body {
+    max-width:100%;
     font-family: var(--font-body);
     color: var(--dark);
     line-height: 1.6;
