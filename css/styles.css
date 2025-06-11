@@ -209,13 +209,13 @@ p {
 
 .header .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     
 }
 
 .logo {
     display: flex;
-    align-items: center;
+    
 }
 
 .logo-img {
