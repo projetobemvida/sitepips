@@ -195,7 +195,7 @@ p {
 /* ===== HEADER ===== */
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -209,7 +209,7 @@ p {
 
 .header .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     
 }
 
@@ -687,6 +687,8 @@ p {
 /* ===== INSTAGRAM FEED SECTION ===== */
 .instagram-feed {
     background-color: var(--blue);
+    display:flex;
+    flex-direction:column;
 }
 
 .instagram-grid {
