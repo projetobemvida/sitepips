@@ -689,6 +689,7 @@ p {
     background-color: var(--blue);
     display:flex;
     flex-direction:column;
+    justify-content:center;
 }
 
 .instagram-grid {
@@ -999,6 +1000,7 @@ p {
     box-shadow: var(--shadow-md);
     z-index: 999;
     transition: var(--transition);
+    width:90%;
 }
 
 .whatsapp-float:hover {
