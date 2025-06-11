@@ -81,9 +81,14 @@ ul {
 }
 
 .container {
-    width:100%
+    align-content: center;
+    max-width: 95%;
     margin: 0 auto;
-    padding: 0 var(--spacing-sm);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 section {
