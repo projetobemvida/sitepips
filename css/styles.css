@@ -892,7 +892,7 @@ p {
 .whatsapp-float {
     position: fixed;
     bottom: 40px;
-    right: 40px;
+    left: 40px;
     width: 70px;
     height: 70px;
     background-color: #25D366;
