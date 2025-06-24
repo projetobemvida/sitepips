@@ -82,7 +82,7 @@ ul {
 
 .container {
     align-content: center;
-    max-width: 95%;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
