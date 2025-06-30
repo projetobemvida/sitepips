@@ -36,6 +36,35 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=9861765200617530&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+    <style>
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+.cookie-banner a {
+  color: #4fc3f7;
+  text-decoration: underline;
+}
+.cookie-banner button {
+  background: #4fc3f7;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+</style>
+
 </head>
 <body>
     <!-- Botão WhatsApp Flutuante -->
@@ -427,5 +456,14 @@ src="https://www.facebook.com/tr?id=9861765200617530&ev=PageView&noscript=1"
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/script.js"></script>
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="cookie-banner">
+  <p>Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="cookies.html" target="_blank">Política de Cookies</a>.</p>
+  <button onclick="aceitarCookies()">Aceitar</button>
+</div>
+
+<script src="cookie.js"></script>
+
+    
 </body>
 </html>
