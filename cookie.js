@@ -1,21 +1,30 @@
+
 function aceitarCookies() {
   localStorage.setItem('consentimentoCookies', 'aceito');
   document.getElementById('cookie-banner').style.display = 'none';
-  ativarCookies(); // Ative cookies opcionais aqui
+  ativarCookies(); // Ativa cookies opcionais como Google Analytics
 }
 
 function recusarCookies() {
   localStorage.setItem('consentimentoCookies', 'recusado');
   document.getElementById('cookie-banner').style.display = 'none';
-  // Nenhum cookie opcional será ativado
 }
 
 function ativarCookies() {
-  // Aqui você pode carregar scripts como Google Analytics, Facebook Pixel etc.
-  // Exemplo:
-  // const scriptGA = document.createElement('script');
-  // scriptGA.src = 'https://www.googletagmanager.com/gtag/js?id=SEU_ID';
-  // document.head.appendChild(scriptGA);
+  // Google Analytics (insira seu ID real no lugar de G-XXXXXXX)
+  const scriptGA = document.createElement('script');
+  scriptGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+  scriptGA.async = true;
+  document.head.appendChild(scriptGA);
+
+  const inlineGA = document.createElement('script');
+  inlineGA.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  `;
+  document.head.appendChild(inlineGA);
 }
 
 window.onload = function () {
