@@ -2,7 +2,7 @@
 function aceitarCookies() {
   localStorage.setItem('consentimentoCookies', 'aceito');
   document.getElementById('cookie-banner').style.display = 'none';
-  ativarCookies(); // Ativa cookies opcionais como Google Analytics
+  ativarCookies();
 }
 
 function recusarCookies() {
@@ -11,9 +11,9 @@ function recusarCookies() {
 }
 
 function ativarCookies() {
-  // Google Analytics (insira seu ID real no lugar de G-XXXXXXX)
+  // Google Analytics ativado apenas após consentimento
   const scriptGA = document.createElement('script');
-  scriptGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+  scriptGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-6LQK24QYS2';
   scriptGA.async = true;
   document.head.appendChild(scriptGA);
 
@@ -22,7 +22,7 @@ function ativarCookies() {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
+    gtag('config', 'G-6LQK24QYS2');
   `;
   document.head.appendChild(inlineGA);
 }
