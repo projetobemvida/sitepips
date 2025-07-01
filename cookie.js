@@ -11,7 +11,6 @@ function recusarCookies() {
 }
 
 function ativarCookies() {
-  // Google Analytics ativado apenas após consentimento
   const scriptGA = document.createElement('script');
   scriptGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-6LQK24QYS2';
   scriptGA.async = true;
@@ -35,3 +34,10 @@ window.onload = function () {
     ativarCookies();
   }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAceitar = document.getElementById('btn-aceitar');
+  const btnRecusar = document.getElementById('btn-recusar');
+  if (btnAceitar) btnAceitar.addEventListener('click', aceitarCookies);
+  if (btnRecusar) btnRecusar.addEventListener('click', recusarCookies);
+});
