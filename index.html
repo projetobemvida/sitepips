@@ -456,13 +456,11 @@ src="https://www.facebook.com/tr?id=9861765200617530&ev=PageView&noscript=1"
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/script.js"></script>
-<!-- Cookie Banner -->
-<div id="cookie-banner" class="cookie-banner">
-  <p>Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="cookies.html" target="_blank">Política de Cookies</a>.</p>
-  <button onclick="aceitarCookies()">Aceitar</button>
+<div id="cookieConsentBanner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; color: #fff; text-align: center; padding: 15px; z-index: 9999; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);">
+    Este site utiliza cookies para garantir que você obtenha a melhor experiência. Ao continuar navegando, você concorda com o uso de cookies. Para mais informações, consulte nossa <a href="politica_cookies_lgpd.html" style="color: #fff; text-decoration: underline;">Política de Cookies</a>.
+    <button id="acceptCookies" style="background-color: #4CAF50; color: white; border: none; padding: 8px 15px; margin-left: 20px; cursor: pointer; border-radius: 5px;">Aceitar</button>
+    <button id="rejectCookies" style="background-color: #f44336; color: white; border: none; padding: 8px 15px; margin-left: 10px; cursor: pointer; border-radius: 5px;">Recusar</button>
 </div>
-
-<script src="cookie.js"></script>
 
     
 </body>
