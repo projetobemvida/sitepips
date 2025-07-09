@@ -81,14 +81,9 @@ ul {
 }
 
 .container {
-    align-content: center;
-    max-width: 95%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    padding: 0 var(--spacing-sm);
 }
 
 section {
@@ -206,21 +201,26 @@ p {
 }
 
 .header .container {
-    max-width: 100%;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
-    justify-content:space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 var(--spacing-sm);
+    box-sizing: border-box;
 }
 
 .logo {
     display: flex;
-    justify-content:space-around;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .logo-img {
     height: 120px;
     width: auto;
+    max-width: 100%;
 }
 
 .main-nav {
@@ -230,12 +230,16 @@ p {
 
 .nav-list {
     display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .nav-link {
     padding: var(--spacing-sm);
     font-weight: 600;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -265,6 +269,8 @@ p {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--dark);
+    padding: 0.5rem;
+    margin-left: auto;
 }
 
 /* ===== HERO SECTION ===== */
@@ -1000,6 +1006,74 @@ p {
     }
 }
 
+/* ===== MEDIA QUERIES PARA RESPONSIVIDADE ===== */
+
+/* Tablet e telas médias */
+@media (max-width: 768px) {
+    .header .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .logo-img {
+        height: 80px;
+    }
+    
+    .nav-link {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile e telas pequenas */
+@media (max-width: 640px) {
+    .header {
+        padding: var(--spacing-xs) 0;
+    }
+    
+    .header .container {
+        padding: 0 var(--spacing-sm);
+        flex-wrap: nowrap;
+    }
+    
+    .logo-img {
+        height: 60px;
+    }
+    
+    .main-nav {
+        margin-left: auto;
+    }
+    
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--light);
+        box-shadow: var(--shadow-md);
+        flex-direction: column;
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .nav-list.active {
+        display: flex;
+    }
+    
+    .nav-link {
+        padding: var(--spacing-sm);
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+}
+
 @media (max-width: 576px) {
     section {
         padding: var(--spacing-lg) 0;
@@ -1031,171 +1105,9 @@ p {
         border-radius: var(--border-radius-sm);
         width: 100%;
     }
-}
-
-
-.logo-img {
-    height: 60px; /* Ajuste conforme necessário */
-    width: auto;
-}
-
-
-/* ===== CORREÇÕES DE RESPONSIVIDADE ADICIONADAS PELO MANUS ===== */
-
-/* 1. Prevenção de overflow horizontal em toda a página */
-body, html {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
-/* 2. Container principal responsivo */
-.container {
-    max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-sizing: border-box;
-}
-
-/* 3. Correção do menu de navegação */
-.navbar {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-.navbar-nav {
-    max-width: 100%;
-    flex-wrap: wrap;
-}
-
-.navbar-collapse {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* 4. Correção do botão flutuante do WhatsApp */
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    max-width: 60px;
-    width: 60px;
-    height: 60px;
-    box-sizing: border-box;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 5. Garantir que imagens sejam responsivas */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* 6. Correção para elementos que podem causar overflow */
-* {
-    box-sizing: border-box;
-}
-
-/* 7. Media queries específicas para dispositivos móveis */
-@media (max-width: 768px) {
-    .navbar-nav {
-        flex-direction: column;
-        width: 100%;
-    }
     
-    .navbar-nav .nav-item {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .hero-section {
-        padding: 20px 0;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .whatsapp-button {
-        bottom: 15px;
-        right: 15px;
-        width: 50px;
+    .logo-img {
         height: 50px;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-}
-
-/* 8. Correção específica para o layout do site */
-.row {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.col, .col-md-6, .col-lg-4, .col-lg-6 {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-/* 9. Garantir que seções não extrapolem */
-section {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* 10. Correção para elementos flexbox */
-.d-flex {
-    flex-wrap: wrap;
-}
-
-.justify-content-between {
-    justify-content: space-around;
-}
-
-@media (max-width: 576px) {
-    .justify-content-between {
-        justify-content: center;
-        flex-direction: column;
-    }
-}
-
-/* Cookie Consent Banner Styles */
-#cookieConsentBanner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-#cookieConsentBanner button {
-    flex-shrink: 0;
-}
-
-@media (max-width: 600px) {
-    #cookieConsentBanner {
-        flex-direction: column;
-        padding: 10px;
-    }
-    #cookieConsentBanner button {
-        width: 80%;
-        margin-left: 0 !important;
     }
 }
 
