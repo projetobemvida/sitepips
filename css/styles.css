@@ -1175,4 +1175,28 @@ section {
     }
 }
 
+/* Cookie Consent Banner Styles */
+#cookieConsentBanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#cookieConsentBanner button {
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    #cookieConsentBanner {
+        flex-direction: column;
+        padding: 10px;
+    }
+    #cookieConsentBanner button {
+        width: 80%;
+        margin-left: 0 !important;
+    }
+}
+
 
