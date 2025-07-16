@@ -271,7 +271,11 @@
                 const message = encodeURIComponent('Olá! Gostaria de solicitar um orçamento para decoração de festa. Vim através do site.');
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
                 
-                window.location.href = whatsappUrl;
+                fbq('track', 'Contact'); // <-- evento de conversão
+setTimeout(() => {
+    window.location.href = whatsappUrl;
+}, 300); // dá tempo para o pixel registrar o evento
+
             }
         }, 1000);
         
