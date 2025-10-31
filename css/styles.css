@@ -302,13 +302,13 @@ p {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: var(--spacing-md);
     color: var(--light);
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     margin-bottom: var(--spacing-md);
 }
 
@@ -1216,3 +1216,4 @@ section {
 .swiper-button-next, .swiper-button-prev {
     color: var(--primary);
 }
+
