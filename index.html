@@ -17,6 +17,9 @@
     <!-- AOS - Animate on Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     
@@ -55,7 +58,7 @@
             <div class="hero-content">
                 <h1 data-aos="fade-up">Transforme sua festa com nossos kits Pegue e Monte</h1>
                 <p data-aos="fade-up" data-aos-delay="100">Praticidade e personalização ao seu alcance para festas inesquecíveis</p>
-                <a href="#contato" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Solicite um orçamento</a>
+                <a href="#contato" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Quero meu kit já!</a>
             </div>
         </div>
         <div class="hero-overlay"></div>
@@ -121,69 +124,75 @@
     <section id="temas" class="kits-populares">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Nossos Temas Mais Populares</h2>
-            <div class="kits-grid">
-                <div class="kit-card" data-aos="fade-up">
-                    <div class="kit-image">
-                        <img src="images/stitch.webp" alt="Kit Mais Buscados">
+            <div class="swiper-container kits-swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="kit-card" data-aos="fade-up">
+                            <div class="kit-image">
+                                <img src="images/stitch.webp" alt="Kit Mais Buscados">
+                            </div>
+                            <div class="kit-info">
+                                <h3>Kit Top Buscados</h3>
+                                <p>Aqui você encontra o seu tema preferido! Consulte e faça sua escolha!</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="kit-info">
-                        <h3>Kit Top Buscados</h3>
-                        <p>Aqui você encontra o seu tema preferido! Consulte e faça sua escolha!</p>
+                    <div class="swiper-slide">
+                        <div class="kit-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="kit-image">
+                                <img src="images/junina.webp" alt="Kit junina">
+                            </div>
+                            <div class="kit-info">
+                                <h3>Kit Festas de Época</h3>
+                                <p>Decoração encantada para Natal, Festas Juninas , Ano Novo e mais!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="kit-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="kit-image">
+                                <img src="images/azulrosa.webp" alt="Kit Super Heróis">
+                            </div>
+                            <div class="kit-info">
+                                <h3>Kit Aniversário Infantil</h3>
+                                <p>Decoração personalizada para uma festa inesquecível</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="kit-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="kit-image">
+                                <img src="images/casanova.webp" alt="Kit Unicórnio">
+                            </div>
+                            <div class="kit-info">
+                                <h3>Momentos de Conquista</h3>
+                                <p>Magia e cores para uma celebrar eventos com os amigos!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="kit-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="kit-image">
+                                <iframe 
+                                    width="100%" 
+                                    height="315" 
+                                    src="https://www.youtube.com/embed/TwDD1BnEb1c" 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="kit-info">
+                                <h3>Tutorial de Montagem!</h3>
+                                <p>Veja como é prático e rápido montar sua festa!</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="kit-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="kit-image">
-                        <img src="images/junina.webp" alt="Kit junina">
-                        
-                    </div>
-                    <div class="kit-info">
-                        <h3>Kit Festas de Época</h3>
-                        <p>Decoração encantada para Natal, Festas Juninas , Ano Novo e mais!</p>
-                    </div>
-                </div>
-                <div class="kit-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="kit-image">
-                        <img src="images/azulrosa.webp" alt="Kit Super Heróis">
-                    </div>
-                    <div class="kit-info">
-                        <h3>Kit Aniversário Infantil</h3>
-                        <p>Decoração personalizada para uma festa inesquecível</p>
-                    </div>
-                </div>
-                <div class="kit-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="kit-image">
-                        <img src="images/casanova.webp" alt="Kit Unicórnio">
-                    </div>
-                    <div class="kit-info">
-                        <h3>Momentos de Conquista</h3>
-                        <p>Magia e cores para uma celebrar eventos com os amigos!</p>
-                    </div>
-                     
-                    </div>
-                    <div class="kit-info">
-                                   
-                <div class="kit-card" data-aos="fade-up" data-aos-delay="400">
-    <div class="kit-image">
-        <iframe 
-            width="100%" 
-            height="315" 
-            src="https://www.youtube.com/embed/TwDD1BnEb1c" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    <div class="kit-info">
-        <h3>Tutorial de Montagem!</h3>
-        <p>Veja como é prático e rápido montar sua festa!</p>
-    </div>
-</div>
-
-                    
-                    
-                    
-                </div>
+                <div class="swiper-pagination kits-swiper-pagination"></div>
+                <div class="swiper-button-prev kits-swiper-button-prev"></div>
+                <div class="swiper-button-next kits-swiper-button-next"></div>
             </div>
             <div class="center-btn" data-aos="fade-up">
                 <a href="#contato" class="btn btn-primary">Saiba Mais! Entre em Contato!</a>
@@ -241,8 +250,10 @@
   <a href="http://bit.ly/40c9Gwt" 
      target="_blank" 
      rel="noopener" 
-     style="display: inline-block; padding: 12px 24px; background-color: #4285F4; color: white; font-size: 16px; border-radius: 6px; text-decoration: none;">
-   <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+     style="display: inline-block; padding: 15px 30px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.2s; margin-bottom: 20px;">
+    Ver Avaliações no Google
+  </a>
+
 <script src="https://static.elfsight.com/platform/platform.js" async></script>
 <div class="elfsight-app-f65815b0-88d4-4e7b-b820-54bf4193c944" data-elfsight-app-lazy></div>
   </a>
@@ -299,11 +310,7 @@
                             <h3>Telefone</h3>
                             <p>(11) 96309-8096</p>
                         </div>
-                    </div>
-                    <div class="contato-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            
+                                
                         </div>
                     </div>
                     <div class="contato-item">
@@ -330,43 +337,60 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Siga-nos no Instagram</h2>
             <p class="section-subtitle" data-aos="fade-up">@pips.peguemonte</p>
-            <div class="instagram-grid" data-aos="fade-up">
-                <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
-                    <img src="images/chapeuzinho.webp" alt="Instagram Post">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+            <div class="swiper-container instagram-swiper-container" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
+                            <img src="images/chapeuzinho.webp" alt="Instagram Post">
+                            <div class="insta-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
-                    <img src="images/stitch.webp" alt="Instagram Post">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
+                            <img src="images/stitch.webp" alt="Instagram Post">
+                            <div class="insta-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
-                    <img src="images/junina.webp" alt="Instagram Post">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
+                            <img src="images/junina.webp" alt="Instagram Post">
+                            <div class="insta-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
-                    <img src="images/prateado.webp" alt="Instagram Post">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
+                            <img src="images/prateado.webp" alt="Instagram Post">
+                            <div class="insta-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
-                    <img src="images/futebol.webp" alt="Instagram Post">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
+                            <img src="images/futebol.webp" alt="Instagram Post">
+                            <div class="insta-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
-                    <img src="images/pool-party.webp" alt="Instagram Post">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" class="insta-item">
+                            <img src="images/pool-party.webp" alt="Instagram Post">
+                            <div class="insta-overlay">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                </div>
+                <div class="swiper-pagination instagram-swiper-pagination"></div>
+                <div class="swiper-button-prev instagram-swiper-button-prev"></div>
+                <div class="swiper-button-next instagram-swiper-button-next"></div>
             </div>
         </div>
     </section>
@@ -414,6 +438,10 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/swiper-config.js"></script>
     
     <!-- Sistema de Cookies LGPD -->
     <script src="js/cookies-lgpd.js"></script>
