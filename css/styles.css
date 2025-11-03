@@ -220,8 +220,8 @@ p {
 }
 
 .logo-img {
-    height: 120px;
-    width: auto;
+    height: 20rem;
+    width: 20rem;
 }
 
 .main-nav {
@@ -1216,4 +1216,3 @@ section {
 .swiper-button-next, .swiper-button-prev {
     color: var(--primary);
 }
-
