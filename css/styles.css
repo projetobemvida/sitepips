@@ -86,7 +86,6 @@ ul {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -220,8 +219,8 @@ p {
 }
 
 .logo-img {
-    height: 20rem;
-    width: 20rem;
+    height: 120px;
+    width: auto;
 }
 
 .main-nav {
@@ -302,13 +301,13 @@ p {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: var(--spacing-md);
     color: var(--light);
 }
 
 .hero p {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
 }
 
@@ -319,7 +318,6 @@ p {
 
 .conceito-content {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     gap: var(--spacing-lg);
     align-items: center;
@@ -650,15 +648,13 @@ p {
 
 /* ===== CONTATO SECTION ===== */
 .contato {
-    display:flex;
-    
     background-color: var(--yellow);
 }
 
 .contato-content {
-   display:flex;
-   flex-direction: column;
-   gap: var(--spacing-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
 }
 
 .contato-info, .contato-form {
@@ -681,7 +677,6 @@ p {
 
 .social-links {
     display: flex;
-    align-items: center;
     gap: var(--spacing-sm);
     margin-top: var(--spacing-md);
 }
@@ -692,8 +687,8 @@ p {
     background-color: var(--primary);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     color: var(--light);
     transition: var(--transition);
 }
@@ -904,8 +899,8 @@ p {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background-color: #25D366;
     color: var(--light);
     border-radius: 50%;
@@ -920,7 +915,7 @@ p {
 
 .whatsapp-float:hover {
     background-color: #20ba5a;
-    
+    transform: scale(1.1);
 }
 
 /* ===== RESPONSIVIDADE ===== */
@@ -1181,38 +1176,3 @@ section {
 }
 
 
-
-
-/* Swiper Carousel Styles */
-.swiper-container {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
-.swiper-pagination-bullet {
-    background: var(--primary);
-}
-
-.swiper-button-next, .swiper-button-prev {
-    color: var(--primary);
-}
