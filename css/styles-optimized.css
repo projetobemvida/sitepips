@@ -1,5 +1,6 @@
 /* * PIPS Pegue Monte - Estilos Otimizados
 * Implementação de melhorias de UX/Design e Correções Mobile
+* ATUALIZAÇÃO: Correção de Quebra de Cabeçalho Mobile e Conversão REM
 */
 
 /* ===== 1. VARIÁVEIS ===== */
@@ -29,22 +30,22 @@
     --font-accent: 'Pacifico', cursive;
     
     /* Espaçamentos */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 3rem;
-    --spacing-xl: 5rem;
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 2rem;     /* 32px */
+    --spacing-lg: 3rem;     /* 48px */
+    --spacing-xl: 5rem;     /* 80px */
     
     /* Design Tokens */
-    --border-radius-sm: 5px;
-    --border-radius-md: 10px;
-    --border-radius-lg: 20px;
-    --border-radius-xl: 30px;
+    --border-radius-sm: 0.3125rem; /* 5px */
+    --border-radius-md: 0.625rem;  /* 10px */
+    --border-radius-lg: 1.25rem;   /* 20px */
+    --border-radius-xl: 1.875rem;  /* 30px */
     
-    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.15);
+    --shadow-text: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
     
     --transition: all 0.3s ease;
 }
@@ -56,47 +57,43 @@
     box-sizing: border-box;
 }
 
-/* Melhoria Audit: Seleção de texto com a cor da marca */
+/* Força absoluta para impedir scroll lateral "dançando" */
+html, body {
+    max-width: 100vw !important;
+    width: 100%;
+    overflow-x: hidden !important;
+    position: relative;
+    scroll-behavior: smooth;
+    font-size: 100%; /* Base 16px */
+    font-family: var(--font-body);
+    color: var(--dark);
+    line-height: 1.6;
+    background-color: var(--light);
+}
+
 ::selection {
     background-color: var(--cta-orange);
     color: var(--light);
 }
 
-/* Melhoria Audit: Barra de rolagem personalizada */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--gray);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary);
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
-body {
-    font-family: var(--font-body);
-    color: var(--dark);
-    line-height: 1.6;
-    background-color: var(--light);
-    overflow-x: hidden;
-}
+::-webkit-scrollbar { width: 0.625rem; }
+::-webkit-scrollbar-track { background: var(--gray); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 0.3125rem; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* Correção de Mapas e Vídeos */
+iframe, embed, object, video {
+    max-width: 100%;
+    width: 100%; 
+    height: 18.75rem; /* 300px */
+    display: block; 
+    border: 0;
 }
 
 a {
@@ -105,26 +102,23 @@ a {
     transition: var(--transition);
 }
 
-ul {
-    list-style: none;
-}
+ul { list-style: none; }
 
 /* ===== 3. LAYOUT GERAL ===== */
 .container {
     align-content: center;
-    max-width: 1200px; /* Ajustado para padrão web (era 95%) */
-    width: 95%;
+    max-width: 75rem; /* 1200px */
+    width: 100%; 
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1.25rem; /* 20px */
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite quebra nos conteúdos gerais */
+    overflow-x: hidden; 
 }
 
-section {
-    padding: var(--spacing-xl) 0;
-}
+section { padding: var(--spacing-xl) 0; }
 
 /* ===== 4. TIPOGRAFIA ===== */
 h1, h2, h3, h4, h5, h6 {
@@ -141,10 +135,7 @@ h4 { font-size: 1.5rem; }
 
 p { margin-bottom: var(--spacing-sm); }
 
-strong {
-    font-weight: 700;
-    color: var(--primary-dark);
-}
+strong { font-weight: 700; color: var(--primary-dark); }
 
 .section-title {
     text-align: center;
@@ -160,10 +151,10 @@ strong {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
+    width: 5rem; /* 80px */
+    height: 0.1875rem; /* 3px */
     background: var(--secondary);
-    border-radius: 3px;
+    border-radius: 0.1875rem;
 }
 
 .section-subtitle {
@@ -194,12 +185,12 @@ strong {
     color: var(--light);
     box-shadow: var(--shadow-sm);
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.03125rem;
 }
 
 .btn-primary:hover {
     background-color: var(--cta-orange-hover);
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
     box-shadow: var(--shadow-md);
 }
 
@@ -211,7 +202,7 @@ strong {
 
 .btn-secondary:hover {
     background-color: #ff9a94;
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
     box-shadow: var(--shadow-md);
 }
 
@@ -234,22 +225,19 @@ strong {
 }
 
 .header .container {
-    justify-content: space-between; /* Melhor espaçamento */
+    justify-content: space-between;
+    overflow: visible;
+    /* FIX CRÍTICO: Impede que a logo e o menu quebrem linha no mobile */
+    flex-wrap: nowrap; 
 }
 
-.logo-img {
-    height: 120px;
-    width: auto;
+.logo-img { 
+    height: 7.5rem; /* 120px Desktop */
+    width: auto; 
 }
 
-.main-nav {
-    display: flex;
-    align-items: center;
-}
-
-.nav-list {
-    display: flex;
-}
+.main-nav { display: flex; align-items: center; }
+.nav-list { display: flex; }
 
 .nav-link {
     padding: var(--spacing-sm);
@@ -264,18 +252,13 @@ strong {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 0.125rem;
     background-color: var(--cta-orange);
     transition: var(--transition);
 }
 
-.nav-link:hover {
-    color: var(--cta-orange);
-}
-
-.nav-link:hover::after {
-    width: 70%;
-}
+.nav-link:hover { color: var(--cta-orange); }
+.nav-link:hover::after { width: 70%; }
 
 .menu-toggle {
     display: none;
@@ -289,7 +272,7 @@ strong {
 /* ===== 7. SEÇÃO HERO ===== */
 .hero {
     height: 100vh;
-    min-height: 600px;
+    min-height: 37.5rem; /* 600px */
     background-image: url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -299,7 +282,9 @@ strong {
     justify-content: center;
     text-align: center;
     color: var(--light);
-    margin-top: 80px; /* Compensação Header fixo */
+    margin-top: 5rem; /* 80px Compensação Header */
+    width: 100%;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -315,7 +300,7 @@ strong {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 50rem; /* 800px */
     margin: 0 auto;
     padding: var(--spacing-md);
 }
@@ -325,7 +310,7 @@ strong {
     margin-bottom: var(--spacing-md);
     color: var(--light);
     text-shadow: var(--shadow-text);
-    letter-spacing: 1px;
+    letter-spacing: 0.0625rem;
 }
 
 .hero p {
@@ -345,19 +330,12 @@ strong {
     width: 100%;
 }
 
-.conceito-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.conceito-text p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
+.conceito-text { flex: 1; min-width: 18.75rem; /* 300px */ }
+.conceito-text p { font-size: 1.05rem; line-height: 1.8; }
 
 .conceito-steps {
     flex: 1;
-    min-width: 300px;
+    min-width: 18.75rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
@@ -373,13 +351,13 @@ strong {
 }
 
 .step:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
     box-shadow: var(--shadow-md);
 }
 
 .step-icon {
-    width: 70px;
-    height: 70px;
+    width: 4.375rem; /* 70px */
+    height: 4.375rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
@@ -389,17 +367,14 @@ strong {
     box-shadow: var(--shadow-sm);
 }
 
-.step-icon i {
-    font-size: 2rem;
-    color: var(--light);
-}
+.step-icon i { font-size: 2rem; color: var(--light); }
 
 /* ===== 9. SEÇÃO KITS POPULARES ===== */
 .kits-populares { background-color: var(--pink); }
 
 .kits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr)); /* 280px */
     gap: var(--spacing-lg);
     width: 100%;
 }
@@ -413,16 +388,15 @@ strong {
 }
 
 .kit-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-0.5rem);
     box-shadow: var(--shadow-lg);
 }
 
 .kit-image {
     position: relative;
-    /* Melhoria Audit: height flexível ou aspect ratio para vídeo */
     height: auto;
-    aspect-ratio: 16 / 9; /* Garante proporção correta para vídeos */
-    min-height: 200px;
+    aspect-ratio: 16 / 9;
+    min-height: 12.5rem; /* 200px */
     overflow: hidden;
     background-color: var(--gray);
 }
@@ -432,12 +406,6 @@ strong {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
-}
-
-.kit-image iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
 }
 
 .kit-overlay {
@@ -457,22 +425,15 @@ strong {
 .kit-card:hover .kit-overlay { opacity: 1; }
 .kit-card:hover .kit-image img { transform: scale(1.1); }
 
-.kit-info {
-    padding: var(--spacing-md);
-    text-align: center;
-}
-
-.kit-info h3 {
-    margin-bottom: var(--spacing-xs);
-    color: var(--dark);
-}
+.kit-info { padding: var(--spacing-md); text-align: center; }
+.kit-info h3 { margin-bottom: var(--spacing-xs); color: var(--dark); }
 
 /* ===== 10. SEÇÃO COMO FUNCIONA (Timeline) ===== */
 .como-funciona { background-color: var(--blue); }
 
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 50rem; /* 800px */
     width: 100%;
     margin: 0 auto;
 }
@@ -483,7 +444,7 @@ strong {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px;
+    width: 0.25rem; /* 4px */
     height: 100%;
     background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
 }
@@ -507,8 +468,8 @@ strong {
 .timeline-number {
     position: absolute;
     top: 0;
-    width: 50px;
-    height: 50px;
+    width: 3.125rem; /* 50px */
+    height: 3.125rem;
     background: linear-gradient(135deg, var(--secondary) 0%, var(--cta-orange) 100%);
     border-radius: 50%;
     display: flex;
@@ -521,8 +482,8 @@ strong {
     box-shadow: var(--shadow-md);
 }
 
-.timeline-item:nth-child(odd) .timeline-number { right: -25px; }
-.timeline-item:nth-child(even) .timeline-number { left: -25px; }
+.timeline-item:nth-child(odd) .timeline-number { right: -1.5625rem; }
+.timeline-item:nth-child(even) .timeline-number { left: -1.5625rem; }
 
 .timeline-content {
     background-color: var(--light);
@@ -531,87 +492,7 @@ strong {
     box-shadow: var(--shadow-sm);
 }
 
-/* ===== 11. SEÇÃO DEPOIMENTOS ===== */
-.depoimentos { background-color: var(--yellow); }
-
-.depoimentos-slider {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.depoimento {
-    background-color: var(--gray);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
-    margin: 0 var(--spacing-sm);
-}
-
-.depoimento-content {
-    font-style: italic;
-    position: relative;
-    padding: var(--spacing-sm) var(--spacing-md);
-}
-
-.depoimento-content::before {
-    content: '\201C';
-    font-family: Georgia, serif;
-    font-size: 4rem;
-    position: absolute;
-    left: -10px;
-    top: -20px;
-    color: var(--primary);
-    opacity: 0.5;
-}
-
-.depoimento-author {
-    display: flex;
-    align-items: center;
-    margin-top: var(--spacing-sm);
-}
-
-.depoimento-author img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: var(--spacing-sm);
-}
-
-.author-info h4 { margin-bottom: 0; }
-.author-info p {
-    margin-bottom: 0;
-    font-size: 0.9rem;
-    color: var(--gray-dark);
-}
-
-.slider-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--spacing-md);
-    width: 100%;
-}
-
-.prev-btn, .next-btn {
-    background-color: var(--primary);
-    color: var(--light);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 var(--spacing-xs);
-    cursor: pointer;
-    border: none;
-    transition: var(--transition);
-}
-
-.prev-btn:hover, .next-btn:hover { background-color: var(--secondary); }
-
+/* ===== 11. AVALIAÇÕES & INSTAGRAM ===== */
 .rating-stars {
     display: flex;
     justify-content: center;
@@ -623,7 +504,6 @@ strong {
 .star { color: #ffc107; font-size: 1.5rem; }
 .rating-text { font-weight: 600; color: var(--dark); }
 
-/* ===== 12. INSTAGRAM FEED ===== */
 .instagram-feed {
     display: flex;
     flex-direction: column;
@@ -633,14 +513,14 @@ strong {
 
 .instagram-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); /* 200px */
     gap: var(--spacing-md);
     width: 100%;
 }
 
 .insta-item {
     position: relative;
-    height: 200px;
+    height: 12.5rem; /* 200px */
     overflow: hidden;
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
@@ -671,7 +551,7 @@ strong {
 .insta-item:hover img { transform: scale(1.1); }
 .insta-overlay i { font-size: 2rem; color: var(--light); }
 
-/* ===== 13. SEÇÃO CONTATO ===== */
+/* ===== 12. CONTATO & FOOTER ===== */
 .contato { background-color: var(--yellow); }
 
 .contato-content {
@@ -681,10 +561,7 @@ strong {
     width: 100%;
 }
 
-.contato-info, .contato-form {
-    flex: 1;
-    min-width: 300px;
-}
+.contato-info { flex: 1; min-width: 18.75rem; }
 
 .contato-item {
     display: flex;
@@ -696,7 +573,7 @@ strong {
     font-size: 1.5rem;
     color: var(--cta-orange);
     margin-right: var(--spacing-sm);
-    margin-top: 5px;
+    margin-top: 0.3125rem;
 }
 
 .social-links {
@@ -706,8 +583,8 @@ strong {
 }
 
 .social-links a {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
@@ -720,37 +597,10 @@ strong {
 
 .social-links a:hover {
     background: linear-gradient(135deg, var(--cta-orange) 0%, var(--cta-orange-hover) 100%);
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
     box-shadow: var(--shadow-md);
 }
 
-.form-group { margin-bottom: var(--spacing-sm); }
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius-sm);
-    font-family: var(--font-body);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--cta-orange);
-    box-shadow: 0 0 5px rgba(255, 159, 67, 0.3);
-}
-
-/* ===== 14. FOOTER ===== */
 .footer {
     background-color: var(--dark);
     color: var(--light);
@@ -765,31 +615,28 @@ strong {
     width: 100%;
 }
 
-.footer-logo, .footer-links, .footer-newsletter {
-    flex: 1;
-    min-width: 250px;
-}
+.footer-logo, .footer-links { flex: 1; min-width: 15.625rem; /* 250px */ }
 
 .footer-logo img {
-    height: 60px;
+    height: 3.75rem; /* 60px */
     width: auto;
     margin-bottom: var(--spacing-sm);
 }
 
-.footer-links h3, .footer-newsletter h3 {
+.footer-links h3 {
     color: var(--light);
     position: relative;
     padding-bottom: var(--spacing-xs);
     margin-bottom: var(--spacing-sm);
 }
 
-.footer-links h3::after, .footer-newsletter h3::after {
+.footer-links h3::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 2px;
+    width: 3.125rem;
+    height: 0.125rem;
     background-color: var(--cta-orange);
 }
 
@@ -802,24 +649,7 @@ strong {
 
 .footer-links ul li a:hover {
     color: var(--cta-orange);
-    padding-left: 5px;
-}
-
-.newsletter-form {
-    display: flex;
-    margin-top: var(--spacing-sm);
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
-}
-
-.newsletter-form button {
-    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
-    padding: 0 15px;
+    padding-left: 0.3125rem;
 }
 
 .footer-bottom {
@@ -827,173 +657,65 @@ strong {
     justify-content: space-between;
     align-items: center;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
     width: 100%;
 }
 
-.footer-social {
-    display: flex;
-    gap: var(--spacing-xs);
-}
-
-.footer-social a {
-    color: var(--light);
-    font-size: 1.2rem;
-    transition: var(--transition);
-}
-
+.footer-social { display: flex; gap: var(--spacing-xs); }
+.footer-social a { color: var(--light); font-size: 1.2rem; transition: var(--transition); }
 .footer-social a:hover { color: var(--cta-orange); }
 
-/* ===== 15. WHATSAPP FLUTUANTE (CORRIGIDO) ===== */
-/* Esta seção consolida todas as correções de visualização mobile */
-
+/* ===== 13. WHATSAPP FLUTUANTE ===== */
 .whatsapp-float {
-    /* Força posicionamento fixo e visibilidade acima de tudo */
     position: fixed !important; 
-    bottom: 30px;
-    right: 30px;
-    z-index: 99999 !important; /* Camada máxima absoluta */
-    
-    /* Display e Visibilidade */
+    bottom: 1.875rem; /* 30px */
+    right: 1.875rem;
+    z-index: 99999 !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    
-    /* Estilos Visuais */
-    width: 60px;
-    height: 60px;
+    width: 3.75rem; /* 60px */
+    height: 3.75rem;
     background: linear-gradient(135deg, #25D366 0%, #20ba5a 100%);
     color: var(--light);
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 0.5rem 1.25rem rgba(37, 211, 102, 0.4);
     transition: var(--transition);
-    border: 3px solid var(--light);
+    border: 0.1875rem solid var(--light);
     cursor: pointer;
 }
 
 .whatsapp-float:hover {
     background: linear-gradient(135deg, #20ba5a 0%, #1a9d50 100%);
     transform: scale(1.15);
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+    box-shadow: 0 0.75rem 1.875rem rgba(37, 211, 102, 0.6);
 }
 
-/* Garante que o ícone do Font Awesome apareça centralizado e visível */
-.whatsapp-float i {
-    margin: 0 !important;
-    font-size: 2rem;
-}
+.whatsapp-float i { margin: 0 !important; font-size: 2rem; }
 
-/* ===== 16. MODAL DE GALERIA ===== */
-.gallery-modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: var(--light);
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 2001;
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.modal-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    text-align: center;
-    color: var(--light);
-    padding: 10px 0;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.modal-prev, .modal-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: var(--light);
-    font-weight: bold;
-    font-size: 30px;
-    transition: var(--transition);
-    user-select: none;
-}
-
-.modal-next { right: 0; }
-.modal-prev:hover, .modal-next:hover { color: var(--cta-orange); }
-
-/* ===== 17. RESPONSIVIDADE (MEDIA QUERIES) ===== */
-
-/* Tablets Pequenos e Laptops (992px) */
-@media (max-width: 992px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.5rem; }
-    
-    .hero h1 { font-size: 2.2rem; }
-    .hero p { font-size: 1rem; }
-    
-    /* Ajuste Timeline Vertical */
-    .timeline::before { left: 0; }
-    .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        padding-left: 80px !important;
-        padding-right: 0 !important;
-    }
-    .timeline-number { left: -25px !important; }
-    
-    .conceito-steps { grid-template-columns: 1fr; }
-    .kits-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
-}
-
-/* Tablets e Mobile Landscape (768px) */
-@media (max-width: 768px) {
+/* ===== 14. MEDIA QUERIES (Mobile) ===== */
+@media (max-width: 48rem) { /* 768px */
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.2rem; }
     
+    /* FIX LOGO MOBILE: Impede que a logo fique muito larga e quebre o header */
+    .logo-img { 
+        height: auto; 
+        max-height: 5rem; /* 80px */
+        max-width: 70%; /* Garante espaço para o botão de menu */
+    }
+
     .hero {
-        margin-top: 100px;
-        min-height: 400px;
+        margin-top: 6.25rem; /* 100px */
+        min-height: 25rem; /* 400px */
     }
     
-    .hero h1 { font-size: 1.8rem; }
-    .hero p { font-size: 0.95rem; }
-    
-    .logo-img { height: 80px; }
-    
-    /* Menu Mobile Hamburguer */
     .menu-toggle { display: block; }
+    
     .nav-list {
         display: none;
         position: absolute;
@@ -1009,75 +731,40 @@ strong {
     .nav-link {
         width: 100%;
         padding: var(--spacing-sm);
-        border-bottom: 1px solid var(--gray);
+        border-bottom: 0.0625rem solid var(--gray);
     }
     
     .conceito-content { flex-direction: column; }
     .conceito-steps { grid-template-columns: 1fr; }
     
-    .kits-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
+    .kits-grid { grid-template-columns: 1fr; gap: var(--spacing-md); }
+    .kit-image { height: 12.5rem; }
     
-    .kit-image { height: 200px; }
+    /* Timeline Mobile */
+    .timeline::before { left: 0; }
+    .timeline-item { width: 100%; left: 0 !important; padding-left: 5rem !important; padding-right: 0 !important; }
+    .timeline-number { left: -1.5625rem !important; }
     
     .instagram-grid { grid-template-columns: repeat(2, 1fr); }
-    .insta-item { height: 150px; }
+    .insta-item { height: 9.375rem; }
     
-    /* Ajuste Botão WhatsApp Mobile */
+    /* WhatsApp Mobile */
     .whatsapp-float {
-        width: 55px !important;
-        height: 55px !important;
-        bottom: 20px !important;
-        right: 20px !important;
+        width: 3.4375rem !important; /* 55px */
+        height: 3.4375rem !important;
+        bottom: 1.25rem !important;
+        right: 1.25rem !important;
         font-size: 1.8rem !important;
     }
     .whatsapp-float i { font-size: 1.8rem !important; }
-}
-
-/* Mobile Portrait (480px) */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px; /* Ganho de área útil */
-    }
-
-    h1 { font-size: 1.5rem; }
-    h2 { font-size: 1.3rem; }
-    h3 { font-size: 1.1rem; }
-    
-    .hero {
-        margin-top: 80px;
-        min-height: 300px;
-    }
-    
-    .hero h1 { font-size: 1.5rem; }
-    .hero-content h1 {
-        margin-top: 2rem;
-        line-height: 1.2;
-    }
-    .hero p { font-size: 0.9rem; }
-    
-    .btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.95rem;
-    }
-    
-    .section-title { margin-bottom: var(--spacing-md); }
-    
-    .kits-grid { grid-template-columns: 1fr; }
-    .instagram-grid { grid-template-columns: 1fr; }
-    .insta-item { height: 200px; }
     
     .footer-content { flex-direction: column; }
-    
-    /* Ajuste Botão WhatsApp Telas Pequenas */
-    .whatsapp-float {
-        width: 50px !important;
-        height: 50px !important;
-        bottom: 15px !important;
-        right: 15px !important;
-        font-size: 1.5rem !important;
-    }
-    .whatsapp-float i { font-size: 1.5rem !important; }
+}
+
+@media (max-width: 30rem) { /* 480px */
+    .container { padding: 0 0.9375rem; }
+    .hero { margin-top: 5rem; min-height: 18.75rem; }
+    .hero h1 { font-size: 1.5rem; }
+    .instagram-grid { grid-template-columns: 1fr; }
+    .insta-item { height: 12.5rem; }
 }
