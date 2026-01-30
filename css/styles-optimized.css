@@ -56,6 +56,30 @@
     box-sizing: border-box;
 }
 
+/* Melhoria Audit: Seleção de texto com a cor da marca */
+::selection {
+    background-color: var(--cta-orange);
+    color: var(--light);
+}
+
+/* Melhoria Audit: Barra de rolagem personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -395,7 +419,10 @@ strong {
 
 .kit-image {
     position: relative;
-    height: 280px;
+    /* Melhoria Audit: height flexível ou aspect ratio para vídeo */
+    height: auto;
+    aspect-ratio: 16 / 9; /* Garante proporção correta para vídeos */
+    min-height: 200px;
     overflow: hidden;
     background-color: var(--gray);
 }
