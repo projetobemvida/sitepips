@@ -323,8 +323,10 @@ strong { font-weight: 700; color: var(--primary-dark); }
 .conceito { background-color: var(--yellow); }
 
 .conceito-content {
+    
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: var(--spacing-lg);
     align-items: center;
     width: 100%;
