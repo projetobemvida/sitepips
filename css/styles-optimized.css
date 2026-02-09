@@ -801,3 +801,33 @@ strong { font-weight: 700; color: var(--primary-dark); }
     font-size: 0.9375rem; /* 15px */
     padding: 0 var(--spacing-xs);
 }
+/* Efeito de destaque (Lightbox/Modal) */
+.video-modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); /* Fundo escuro */
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.video-modal-content {
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
