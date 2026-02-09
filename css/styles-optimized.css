@@ -768,26 +768,36 @@ strong { font-weight: 700; color: var(--primary-dark); }
     .instagram-grid { grid-template-columns: 1fr; }
     .insta-item { height: 12.5rem; }
 }
-/* Efeito de destaque para os cards de vídeo (Tutorial e Transporte) */
+/* ===== 15. DESTAQUE DOS CARDS DE VÍDEO (UX IMPROVEMENT) ===== */
 .kit-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #fff; /* Garante que o fundo seja sólido para a sombra aparecer */
-    border-radius: 15px;
+    transition: var(--transition); /* Usando sua variável de tempo */
+    background-color: var(--light);
+    border-radius: var(--border-radius-md);
     overflow: hidden;
-    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
 }
 
 .kit-card:hover {
-    transform: translateY(-8px); /* O card sobe levemente */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra que dá profundidade */
+    transform: translateY(-0.5rem); /* 8px - Mantendo seu padrão de elevação */
+    box-shadow: var(--shadow-lg); /* Sombra mais profunda para destacar */
 }
 
-.kit-card iframe {
-    border-radius: 12px 12px 0 0; /* Arredonda só as pontas de cima do vídeo */
-    display: block;
+/* Ajuste específico para o iframe dentro do card */
+.kit-card .kit-image iframe {
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    height: 100%; /* Garante que o vídeo preencha o container */
 }
 
-.kit-info h3 {
-    margin-top: 15px;
-    color: #333; /* Ajuste para a cor principal do seu site */
+.kit-card .kit-info h3 {
+    color: var(--primary-dark);
+    margin-top: var(--spacing-sm);
+    font-size: 1.25rem; /* 20px */
+}
+
+.kit-card .kit-info p {
+    color: var(--gray-dark);
+    font-size: 0.9375rem; /* 15px */
+    padding: 0 var(--spacing-xs);
 }
