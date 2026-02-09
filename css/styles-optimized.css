@@ -768,3 +768,26 @@ strong { font-weight: 700; color: var(--primary-dark); }
     .instagram-grid { grid-template-columns: 1fr; }
     .insta-item { height: 12.5rem; }
 }
+/* Efeito de destaque para os cards de vídeo (Tutorial e Transporte) */
+.kit-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff; /* Garante que o fundo seja sólido para a sombra aparecer */
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.kit-card:hover {
+    transform: translateY(-8px); /* O card sobe levemente */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra que dá profundidade */
+}
+
+.kit-card iframe {
+    border-radius: 12px 12px 0 0; /* Arredonda só as pontas de cima do vídeo */
+    display: block;
+}
+
+.kit-info h3 {
+    margin-top: 15px;
+    color: #333; /* Ajuste para a cor principal do seu site */
+}
