@@ -206,9 +206,9 @@ p {
 }
 
 .header .container {
-    max-width: 100%;
+    max-width: 90%;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
 }
 
@@ -1037,6 +1037,7 @@ p {
 .logo-img {
     height: 60px; /* Ajuste conforme necessário */
     width: auto;
+
 }
 
 
