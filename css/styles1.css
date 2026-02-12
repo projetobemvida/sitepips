@@ -198,6 +198,7 @@ p {
     position: fixed;
     top: 0;
     left: 0;
+    display:flex;
     width: 100%;
     background-color: var(--light);
     box-shadow: var(--shadow-sm);
@@ -1175,5 +1176,6 @@ section {
         flex-direction: column;
     }
 }
+
 
 
