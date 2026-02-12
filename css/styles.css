@@ -1004,7 +1004,7 @@ strong {
     flex-direction:column;    
     justify-content: space-around;
     align-items: center;
-    
+    }
     .hero h1 {
         font-size: 2.2rem;
     }
@@ -1054,7 +1054,7 @@ strong {
     flex-direction:column;    
     justify-content: space-around;
     align-items: center;
-    
+    }
     .hero {
         margin-top: 4.5rem;
         min-height: 25rem;
@@ -1149,7 +1149,7 @@ strong {
     flex-direction:column;    
     justify-content: space-around;
     align-items: center;
-    
+    }
     .hero {
         margin-top: 4rem;
         min-height: 18.750rem;
