@@ -277,7 +277,7 @@
                 clearInterval(timer);
                 // Redirect to WhatsApp
                 const phoneNumber = '5511963098096'; // Número do WhatsApp da PIPS Pegue Monte
-                const message = encodeURIComponent('Olá! Gostaria de solicitar um orçamento para decoração de festa. Vim através do site.');
+                const message = encodeURIComponent('Olá! Gostaria de um orçamento para minha celebração. O tema é [            ] e a data [            ].    ');
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
                 
                 fbq('track', 'Contact'); // <-- evento de conversão
