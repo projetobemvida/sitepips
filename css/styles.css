@@ -85,14 +85,10 @@ ul {
 }
 
 .container {
-    align-content: center;
-    max-width: 95%;
+    max-width: 1200px;
+    width: 95%;
     margin: 0 auto;
-    padding: 0 1.250rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 section {
@@ -206,6 +202,24 @@ strong {
 }
 
 /* ===== HEADER ===== */
+.whatsapp-float {
+    position: fixed;
+    width: 3.75rem;
+    height: 3.75rem;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 2rem;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -218,10 +232,10 @@ strong {
 }
 
 .header .container {
-    max-width: 100%;
     display: flex;
-    justify-content:space-around;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .logo {
@@ -231,8 +245,10 @@ strong {
 }
 
 .logo-img {
-    height: 7.500rem;
+    height: 5rem;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .main-nav {
@@ -1036,7 +1052,7 @@ strong {
     }
     
     .hero {
-        margin-top: 6.250rem;
+        margin-top: 4.5rem;
         min-height: 25rem;
     }
     
@@ -1049,7 +1065,7 @@ strong {
     }
     
     .logo-img {
-        height: 5rem;
+        height: 3.5rem;
     }
     
     .menu-toggle {
@@ -1103,11 +1119,21 @@ strong {
     }
     
     .whatsapp-float {
+        position: fixed;
         width: 3.438rem;
         height: 3.438rem;
         bottom: 1.250rem;
         right: 1.250rem;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
         font-size: 1.8rem;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -1125,7 +1151,7 @@ strong {
     }
     
     .hero {
-        margin-top: 5rem;
+        margin-top: 4rem;
         min-height: 18.750rem;
     }
     
