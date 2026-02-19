@@ -10,7 +10,19 @@
         font-src 'self' https://fonts.gstatic.com;
         frame-src 'self' https://*.googletagmanager.com https://*.facebook.com;
     ">
-
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Força o consentimento para o Analytics aceitar os dados
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    </script>
+   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5XRK89D6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -107,7 +119,7 @@
             height: 100%;
             background: linear-gradient(90deg, #7FDBDA, #FFB6C1);
             border-radius: 3px;
-            animation: loadingProgress 1.5s linear forwards; /* Ajustado para o tempo do redirect */
+            animation: loadingProgress 7s linear forwards; /* Ajustado para o tempo do redirect */
             transform-origin: left;
         }
         @keyframes loadingProgress {
@@ -213,7 +225,7 @@
                 const message = encodeURIComponent('Olá! Gostaria de solicitar um orçamento para decoração de festa. Vim através do site.');
                 window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
             }
-        }, 6000);
+        }, 8000);
     </script>
 
     <noscript>
