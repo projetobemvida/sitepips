@@ -499,18 +499,9 @@ class CookieConsentManager {
 
     sendConsentToServer(consentData) {
         // Enviar dados de consentimento para o servidor (opcional)
-        fetch('/api/cookie-consent', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify(consentData)
-        }).catch(error => {
-            console.warn('Erro ao enviar consentimento para o servidor:', error);
-        });
+        // Como usamos GTM/Stape, não precisamos de backend próprio. Apenas registramos no console.
+        console.log('Consentimento atualizado para o Google e Meta.');
     }
-
     showNotification(message, type = 'info') {
         // Criar notificação temporária
         const notification = document.createElement('div');
