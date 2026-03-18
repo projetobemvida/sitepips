@@ -734,7 +734,8 @@ strong {
     margin-right: var(--spacing-sm);
     margin-top: 0.312rem;
 }
-
+.contato-conteudo{
+    display:flex;
 .social-links {
     display: flex;
     gap: var(--spacing-sm);
