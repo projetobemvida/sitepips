@@ -736,6 +736,7 @@ strong {
 }
 .contato-conteudo{
     display:flex;
+    align-items: center;
 .social-links {
     display: flex;
     gap: var(--spacing-sm);
