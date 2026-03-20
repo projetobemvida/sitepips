@@ -6,46 +6,40 @@
     <title>Pegue e Monte em Barueri | Kits Completos a partir de R$150,00 | Pips</title>
     <meta name="description" content="Aluguel de decoração Pegue e Monte em Barueri. Kits higienizados, modernos e que cabem no seu carro. Reserve pelo WhatsApp e retire no Centro de Barueri!">
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 1: Preload da imagem LCP (hero) e logo
-         Isso instrui o browser a baixar essas imagens com
-         prioridade máxima, antes de qualquer outra coisa.
-    ====================================================== -->
     <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
     <link rel="preload" as="image" href="images/logo.webp">
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 2: Preconnect apenas para origens críticas
-         Removidos preconnects desnecessários que bloqueavam.
-    ====================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 3: Fontes com display=swap já definido
-         (mantido como estava, já estava correto)
-    ====================================================== -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap"
+          media="print"
+          onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap">
+    </noscript>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 4: Font Awesome carregado de forma
-         não-bloqueante com media trick
-    ====================================================== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          media="print"
+          onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 5: AOS CSS carregado de forma não-bloqueante
-    ====================================================== -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+    <link rel="stylesheet"
+          href="https://unpkg.com/aos@next/dist/aos.css"
+          media="print"
+          onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    </noscript>
 
-    <!-- CSS principal (crítico, mantido bloqueante) -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/cookies-lgpd.css">
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,30 +58,11 @@
         "postalCode": "06404-010",
         "addressCountry": "BR"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -23.5042,
-        "longitude": -46.8785
-      },
+      "geo": { "@type": "GeoCoordinates", "latitude": -23.5042, "longitude": -46.8785 },
       "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday"],
-          "opens": "09:00",
-          "closes": "20:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Friday",
-          "opens": "09:00",
-          "closes": "22:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "09:00",
-          "closes": "17:00"
-        }
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Saturday"], "opens": "09:00", "closes": "20:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "22:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "17:00" }
       ],
       "areaServed": [
         {"@type": "City", "name": "Barueri"},
@@ -105,28 +80,22 @@
     }
     </script>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 6: GTM movido para o final do <head>
-         com defer — não bloqueia mais o primeiro render.
-         O tracking continua funcionando normalmente.
-    ====================================================== -->
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-5XRK89D6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       function gtagSendEvent(url) {
-        var callback = function () {
-          if (typeof url === 'string') { window.location = url; }
-        };
-        gtag('event', 'page_view', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-        });
+        var callback = function() { if (typeof url === 'string') window.location = url; };
+        gtag('event', 'page_view', { event_callback: callback, event_timeout: 2000 });
         return false;
       }
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5XRK89D6';
+        s.async = true;
+        document.head.appendChild(s);
+      });
     </script>
 
-    <!-- Hero background inline para evitar FOUC -->
     <style>
       .hero { background-image: url('images/hero.webp'); }
     </style>
