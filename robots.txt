@@ -1,8 +1,5 @@
-user-agent: *
-allow: /
-
-# Bloqueia apenas pastas de sistema que o HTML puro possa ter
-disallow: /config/
-disallow: /admin/
-
-sitemap: https://pipspeguemonte.com.br/sitemap.xml
+User-agent: *
+Allow: /
+Disallow: /config/
+Disallow: /admin/
+Sitemap: https://pipspeguemonte.com.br/sitemap.xml
