@@ -6,46 +6,34 @@
     <title>Pegue e Monte em Barueri | Kits Completos a partir de R$150,00 | Pips</title>
     <meta name="description" content="Aluguel de decoração Pegue e Monte em Barueri. Kits higienizados, modernos e que cabem no seu carro. Reserve pelo WhatsApp e retire no Centro de Barueri!">
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 1: Preload da imagem LCP (hero) e logo
-         Isso instrui o browser a baixar essas imagens com
-         prioridade máxima, antes de qualquer outra coisa.
-    ====================================================== -->
     <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
     <link rel="preload" as="image" href="images/logo.webp">
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 2: Preconnect apenas para origens críticas
-         Removidos preconnects desnecessários que bloqueavam.
-    ====================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 3: Fontes com display=swap já definido
-         (mantido como estava, já estava correto)
-    ====================================================== -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- CORREÇÃO 1: fonte não-bloqueante -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap"
+          media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap"></noscript>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 4: Font Awesome carregado de forma
-         não-bloqueante com media trick
-    ====================================================== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 5: AOS CSS carregado de forma não-bloqueante
-    ====================================================== -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
 
-    <!-- CSS principal (crítico, mantido bloqueante) -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/cookies-lgpd.css">
+    <!-- CORREÇÃO 2: CSS próprio não-bloqueante -->
+    <link rel="preload" as="style" href="css/styles.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="css/animations.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="css/cookies-lgpd.css" onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/animations.css">
+      <link rel="stylesheet" href="css/cookies-lgpd.css">
+    </noscript>
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -105,12 +93,7 @@
     }
     </script>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 6: GTM movido para o final do <head>
-         com defer — não bloqueia mais o primeiro render.
-         O tracking continua funcionando normalmente.
-    ====================================================== -->
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-5XRK89D6"></script>
+    <!-- CORREÇÃO 3: GTM carregado após render, não com defer -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -124,32 +107,49 @@
         });
         return false;
       }
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5XRK89D6';
+        s.async = true;
+        document.head.appendChild(s);
+      });
     </script>
 
-    <!-- Hero background inline para evitar FOUC -->
     <style>
       .hero { background-image: url('images/hero.webp'); }
+      .youtube-lite {
+        position: relative; display: block; width: 100%;
+        padding-bottom: 56.25%; background: #000; cursor: pointer; overflow: hidden;
+      }
+      .youtube-lite img {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        object-fit: cover; opacity: 0.85; transition: opacity 0.3s;
+      }
+      .youtube-lite:hover img { opacity: 1; }
+      .youtube-play-btn {
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: none; border: none; cursor: pointer; padding: 0;
+        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+        transition: transform 0.2s; z-index: 2;
+      }
+      .youtube-play-btn:hover { transform: translate(-50%, -50%) scale(1.1); }
+      .youtube-lite iframe {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XRK89D6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Botão WhatsApp flutuante -->
     <a href="whatsapp-conversion.html" class="whatsapp-float" target="_self" title="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <!-- =====================================================
-                     OTIMIZAÇÃO 7: Logo com width/height declarados
-                     (evita CLS - layout shift) e fetchpriority high
-                     pois é visível imediatamente no mobile.
-                ====================================================== -->
                 <img src="images/logo.webp"
                      alt="PIPS Pegue Monte Logo"
                      class="logo-img"
@@ -171,7 +171,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -183,7 +182,6 @@
         <div class="hero-overlay"></div>
     </section>
 
-    <!-- Conceito Section -->
     <section class="conceito">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">O que é Pegue e Monte?</h2>
@@ -223,27 +221,14 @@
         </div>
     </section>
 
-    <!-- Kits Populares Section -->
     <section id="temas" class="kits-populares">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Nossos Temas Mais Procurados</h2>
             <div class="kits-grid">
 
-                <!-- =====================================================
-                     OTIMIZAÇÃO 8: Todas as imagens abaixo do fold
-                     recebem loading="lazy" e width/height declarados.
-                     Isso evita CLS e carregamento desnecessário.
-                     Os valores de width/height são proporcionais —
-                     ajuste se souber as dimensões reais das imagens.
-                ====================================================== -->
-
                 <div class="kit-card" data-aos="fade-up">
                     <div class="kit-image">
-                        <img src="images/pool-party.webp"
-                             alt="Kit decoração Pool Party Barueri"
-                             loading="lazy"
-                             width="600"
-                             height="400">
+                        <img src="images/pool-party.webp" alt="Kit decoração Pool Party Barueri" loading="lazy" width="600" height="400">
                     </div>
                     <div class="kit-info">
                         <h3>Kits Mais procurados</h3>
@@ -253,11 +238,7 @@
 
                 <div class="kit-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="kit-image">
-                        <img src="images/junina.webp"
-                             alt="Kit decoração Festa Junina Barueri"
-                             loading="lazy"
-                             width="600"
-                             height="400">
+                        <img src="images/junina.webp" alt="Kit decoração Festa Junina Barueri" loading="lazy" width="600" height="400">
                     </div>
                     <div class="kit-info">
                         <h3>Kit Festas de Época</h3>
@@ -267,11 +248,7 @@
 
                 <div class="kit-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="kit-image">
-                        <img src="images/snoopy.webp"
-                             alt="Kit decoração Aniversário Infantil Barueri"
-                             loading="lazy"
-                             width="600"
-                             height="400">
+                        <img src="images/snoopy.webp" alt="Kit decoração Aniversário Infantil Barueri" loading="lazy" width="600" height="400">
                     </div>
                     <div class="kit-info">
                         <h3>Kit Aniversário Infantil</h3>
@@ -282,10 +259,7 @@
                 <div class="kit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="kit-image">
                         <img src="images/decoracao_cha_de_cozinha_boho_chic_adulto_pips_pegue_monte_barueri_alphaville_bethaville_cajamar_aldeia_da_serra.webp"
-                             alt="Kit decoração Aniversário Adulto e Chá de Cozinha Barueri"
-                             loading="lazy"
-                             width="600"
-                             height="400">
+                             alt="Kit decoração Aniversário Adulto e Chá de Cozinha Barueri" loading="lazy" width="600" height="400">
                     </div>
                     <div class="kit-info">
                         <h3>Aniversários Adulto e Celebrações</h3>
@@ -293,22 +267,11 @@
                     </div>
                 </div>
 
-                <!-- =====================================================
-                     OTIMIZAÇÃO 9: iframes do YouTube substituídos por
-                     "Lite YouTube" — carrega uma thumbnail estática e
-                     só embute o iframe quando o usuário clica.
-                     Isso elimina ~500KB de JS do YouTube no carregamento
-                     inicial, que é um dos maiores vilões do PageSpeed.
-                ====================================================== -->
-
                 <div class="kit-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="kit-image">
                         <div class="youtube-lite" data-videoid="TwDD1BnEb1c" aria-label="Assistir tutorial de montagem">
                             <img src="https://i.ytimg.com/vi/TwDD1BnEb1c/hqdefault.jpg"
-                                 alt="Tutorial de montagem do kit de decoração Pips"
-                                 loading="lazy"
-                                 width="480"
-                                 height="360">
+                                 alt="Tutorial de montagem do kit de decoração Pips" loading="lazy" width="480" height="360">
                             <button class="youtube-play-btn" aria-label="Reproduzir vídeo">
                                 <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
                             </button>
@@ -324,10 +287,7 @@
                     <div class="kit-image">
                         <div class="youtube-lite" data-videoid="0sdsEZ3lff4" aria-label="Kits que cabem no seu carro">
                             <img src="https://i.ytimg.com/vi/0sdsEZ3lff4/hqdefault.jpg"
-                                 alt="Kits de decoração que cabem no seu carro"
-                                 loading="lazy"
-                                 width="480"
-                                 height="360">
+                                 alt="Kits de decoração que cabem no seu carro" loading="lazy" width="480" height="360">
                             <button class="youtube-play-btn" aria-label="Reproduzir vídeo">
                                 <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
                             </button>
@@ -346,7 +306,6 @@
         </div>
     </section>
 
-    <!-- Como Funciona Section -->
     <section id="como-funciona" class="como-funciona">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Como Funciona</h2>
@@ -390,7 +349,6 @@
         </div>
     </section>
 
-    <!-- Avaliações Section -->
     <section id="avaliacoes" style="text-align: center; padding: 40px 0;">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Avaliações de Clientes</h2>
@@ -409,17 +367,12 @@
                     Ver Avaliações no Google
                 </a>
             </p>
-            <!-- =====================================================
-                 OTIMIZAÇÃO 10: Elfsight carregado de forma lazy
-                 Só inicializa quando o usuário chega nessa seção.
-            ====================================================== -->
             <div id="elfsight-container" data-elfsight-lazy="true">
                 <div class="elfsight-app-f65815b0-88d4-4e7b-b820-54bf4193c944" data-elfsight-app-lazy></div>
             </div>
         </div>
     </section>
 
-    <!-- Contato Section -->
     <section id="contato" class="contato">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
@@ -436,16 +389,8 @@
                         </div>
                     </div>
                     <div>
-                        <!-- =====================================================
-                             OTIMIZAÇÃO 11: Google Maps com loading="lazy"
-                             O iframe só carrega quando o usuário chega nele.
-                        ====================================================== -->
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.668958462136!2d-46.871927!3d-23.508430399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03a85dfac5d3%3A0xc0bacafe3a2e776a!2sPips%20Pegue%20e%20Monte%20Sua%20Festa%20%E2%80%93%20Retirada%20e%20Devolu%C3%A7%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1769376761626!5m2!1spt-BR!2sbr"
-                                width="80%"
-                                height="60%"
-                                style="border:0;"
-                                allowfullscreen
-                                loading="lazy"
+                                width="80%" height="60%" style="border:0;" allowfullscreen loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
                                 title="Localização Pips Pegue Monte Barueri">
                         </iframe>
@@ -477,66 +422,39 @@
         </div>
     </section>
 
-    <!-- Instagram Feed Section -->
     <section class="instagram-feed">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Siga-nos no Instagram</h2>
             <p class="section-subtitle" data-aos="fade-up">@pips.peguemonte</p>
             <div class="instagram-grid" data-aos="fade-up">
-                <!-- Todas as imagens do Instagram com loading="lazy" e dimensões declaradas -->
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
-                    <img src="images/chapeuzinho.webp"
-                         alt="Decoração Chapéuzinho Vermelho - Pips Pegue Monte Barueri"
-                         loading="lazy"
-                         width="400"
-                         height="400">
+                    <img src="images/chapeuzinho.webp" alt="Decoração Chapéuzinho Vermelho - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
                     <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
-                    <img src="images/decoracao_aniversario_adulto_pips_pegue_monte_barueri_alphaville_bethaville_cajamar_aldeia_da_serra.webp"
-                         alt="Decoração Aniversário Adulto - Pips Pegue Monte Barueri"
-                         loading="lazy"
-                         width="400"
-                         height="400">
+                    <img src="images/decoracao_aniversario_adulto_pips_pegue_monte_barueri_alphaville_bethaville_cajamar_aldeia_da_serra.webp" alt="Decoração Aniversário Adulto - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
                     <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
-                    <img src="images/chabebeazul.webp"
-                         alt="Decoração Chá de Bebê Azul - Pips Pegue Monte Barueri"
-                         loading="lazy"
-                         width="400"
-                         height="400">
+                    <img src="images/chabebeazul.webp" alt="Decoração Chá de Bebê Azul - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
                     <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
-                    <img src="images/bodas_de_ouro_cajamar_polvilho_jordanesia_alphaville_bethaville_pips.webp"
-                         alt="Decoração Bodas de Ouro - Pips Pegue Monte Barueri"
-                         loading="lazy"
-                         width="400"
-                         height="400">
+                    <img src="images/bodas_de_ouro_cajamar_polvilho_jordanesia_alphaville_bethaville_pips.webp" alt="Decoração Bodas de Ouro - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
                     <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
-                    <img src="images/futebol.webp"
-                         alt="Decoração Tema Futebol - Pips Pegue Monte Barueri"
-                         loading="lazy"
-                         width="400"
-                         height="400">
+                    <img src="images/futebol.webp" alt="Decoração Tema Futebol - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
                     <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
-                    <img src="images/aniversario-cajamar-alphaville-bethaville-grennvilee-barueri-pips-pegue-monte1.webp"
-                         alt="Decoração Aniversário Pool Party - Pips Pegue Monte Barueri"
-                         loading="lazy"
-                         width="400"
-                         height="400">
+                    <img src="images/aniversario-cajamar-alphaville-bethaville-grennvilee-barueri-pips-pegue-monte1.webp" alt="Decoração Aniversário Pool Party - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
                     <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -564,21 +482,13 @@
         </div>
     </footer>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 12: AOS e demais scripts movidos para o
-         final do body com defer — não bloqueiam mais o render.
-    ====================================================== -->
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     <script src="js/script-optimized.js" defer></script>
     <script src="js/cookies-lgpd.js" defer></script>
 
-    <!-- =====================================================
-         OTIMIZAÇÃO 13: Elfsight carregado só quando necessário
-    ====================================================== -->
-    <script defer src="https://static.elfsight.com/platform/platform.js"></script>
+    <!-- CORREÇÃO 4: Elfsight removido daqui — o lazy já está no script-optimized.js -->
 
     <script>
-        // Copiar endereço
         function copiarEndereco() {
             const texto = "Rua Sargento José de Paula, 247 - Barueri, SP";
             navigator.clipboard.writeText(texto).then(function() {
@@ -587,80 +497,6 @@
                 alert("Erro ao copiar o endereço.");
             });
         }
-
-        // =====================================================
-        // OTIMIZAÇÃO 14: YouTube Lite Player
-        // Substitui os iframes do YouTube por thumbnails clicáveis.
-        // O iframe real só é criado quando o usuário clica no play,
-        // eliminando ~500KB de JS do YouTube no carregamento inicial.
-        // =====================================================
-        document.addEventListener('DOMContentLoaded', function() {
-            // Estilos do YouTube Lite
-            const style = document.createElement('style');
-            style.textContent = `
-                .youtube-lite {
-                    position: relative;
-                    display: block;
-                    width: 100%;
-                    padding-bottom: 56.25%;
-                    background: #000;
-                    cursor: pointer;
-                    overflow: hidden;
-                }
-                .youtube-lite img {
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100%; height: 100%;
-                    object-fit: cover;
-                    opacity: 0.85;
-                    transition: opacity 0.3s;
-                }
-                .youtube-lite:hover img { opacity: 1; }
-                .youtube-play-btn {
-                    position: absolute;
-                    top: 50%; left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    padding: 0;
-                    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-                    transition: transform 0.2s;
-                    z-index: 2;
-                }
-                .youtube-play-btn:hover { transform: translate(-50%, -50%) scale(1.1); }
-                .youtube-lite iframe {
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100%; height: 100%;
-                    border: 0;
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Ativar player ao clicar
-            document.querySelectorAll('.youtube-lite').forEach(function(el) {
-                el.addEventListener('click', function() {
-                    const videoId = el.dataset.videoid;
-                    const iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                    iframe.allowFullscreen = true;
-                    iframe.title = el.getAttribute('aria-label') || 'Vídeo YouTube';
-                    el.innerHTML = '';
-                    el.appendChild(iframe);
-                });
-            });
-
-            // Inicializar AOS depois que tudo carregou
-            if (typeof AOS !== 'undefined') {
-                AOS.init({ once: true, duration: 600 });
-            } else {
-                window.addEventListener('load', function() {
-                    if (typeof AOS !== 'undefined') AOS.init({ once: true, duration: 600 });
-                });
-            }
-        });
     </script>
 </body>
 </html>
