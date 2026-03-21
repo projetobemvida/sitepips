@@ -596,9 +596,10 @@ class CookieConsentManager {
     }
 }
 
-// Inicializar o gerenciador de cookies quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', function() {
-    window.cookieManager = new CookieConsentManager();
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        window.cookieManager = new CookieConsentManager();
+    }, 500);
 });
 
 // Função global para verificar consentimento (para uso em outros scripts)
