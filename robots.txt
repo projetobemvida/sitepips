@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /config/
-Disallow: /admin/
+
 Sitemap: https://pipspeguemonte.com.br/sitemap.xml
