@@ -6,25 +6,19 @@
     <title>Pegue e Monte em Barueri | Kits Completos a partir de R$150,00 | Pips</title>
     <meta name="description" content="Aluguel de decoração Pegue e Monte em Barueri. Kits higienizados, modernos e que cabem no seu carro. Reserve pelo WhatsApp e retire no Centro de Barueri!">
 
+    <!-- PRELOAD: apenas a imagem LCP (hero). Logo tem fetchpriority="high" na tag, não precisa de preload aqui -->
     <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
-    <link rel="preload" as="image" href="images/logo.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- CORREÇÃO 1: fonte não-bloqueante -->
+    <!-- Fontes não-bloqueantes -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap"
           media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap"></noscript>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
-
-   <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/cookies-lgpd.css">
 
@@ -87,7 +81,7 @@
     }
     </script>
 
-    <!-- CORREÇÃO 3: GTM carregado após render, não com defer -->
+    <!-- GTM carregado após render -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -111,6 +105,22 @@
 
     <style>
       .hero { background-image: url('images/hero.webp'); }
+
+      .icon-svg {
+        display: inline-block;
+        vertical-align: middle;
+        fill: currentColor;
+      }
+
+      [data-aos] {
+        opacity: 0;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      [data-aos="fade-up"]    { transform: translateY(30px); }
+      [data-aos="fade-right"] { transform: translateX(-30px); }
+      [data-aos="fade-left"]  { transform: translateX(30px); }
+      [data-aos].aos-animate  { opacity: 1; transform: none; }
+
       .youtube-lite {
         position: relative; display: block; width: 100%;
         padding-bottom: 56.25%; background: #000; cursor: pointer; overflow: hidden;
@@ -138,7 +148,9 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="whatsapp-conversion.html" class="whatsapp-float" target="_self" title="Fale conosco no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
     </a>
 
     <header class="header">
@@ -153,7 +165,9 @@
             </div>
             <nav class="main-nav">
                 <button class="menu-toggle" aria-label="Menu">
-                    <i class="fas fa-bars"></i>
+                    <svg class="icon-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
                 </button>
                 <ul class="nav-list">
                     <li><a href="#inicio" class="nav-link">Início</a></li>
@@ -168,9 +182,9 @@
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 data-aos="fade-up">A melhor decoração Pegue e Monte de Barueri: Kits completos e prontos a partir de R$150,00</h1>
-                <p data-aos="fade-up" data-aos-delay="100">Kits higienizados, modernos, práticos e rápidos para montar. Cabem no seu carro e no seu orçamento. Retire no Centro de Barueri. Reserve seu tema pelo WhatsApp!</p>
-                <a href="#contato" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Reserve sua data agora!</a>
+                <h1>A melhor decoração Pegue e Monte de Barueri: Kits completos e prontos a partir de R$150,00</h1>
+                <p>Kits higienizados, modernos, práticos e rápidos para montar. Cabem no seu carro e no seu orçamento. Retire no Centro de Barueri. Reserve seu tema pelo WhatsApp!</p>
+                <a href="#contato" class="btn btn-primary">Reserve sua data agora!</a>
             </div>
         </div>
         <div class="hero-overlay"></div>
@@ -186,27 +200,47 @@
                 </div>
                 <div class="conceito-steps" data-aos="fade-left">
                     <div class="step">
-                        <div class="step-icon"><i class="fas fa-palette"></i></div>
+                        <div class="step-icon">
+                            <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                            </svg>
+                        </div>
                         <h3>Escolha seu tema preferido</h3>
                         <p>Selecione o tema perfeito para sua festa. Um contrato simples garante sua reserva. O pagamento será feito na retirada do kit.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon"><i class="fas fa-box-open"></i></div>
+                        <div class="step-icon">
+                            <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v4c0 .55.22 1.05.59 1.41L12 19l8.41-8.59C20.78 10.05 21 9.55 21 9V5c0-1.1-.9-2-2-2zm-7 4l-2-2h9l-2 2h-5z"/>
+                            </svg>
+                        </div>
                         <h3>Agende a Retirada</h3>
                         <p>Retire o kit completo e organizado. Estamos no Centro de Barueri - SP</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon"><i class="fas fa-magic"></i></div>
+                        <div class="step-icon">
+                            <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5L17 19l2.5-1.4L22 19l-1.4-2.5L22 14zM22 2l-2.5 1.4L17 2l1.4 2.5L17 7l2.5-1.4L22 7l-1.4-2.5zm-7.63 5.29a.9959.9959 0 00-1.41 0L1.29 18.96c-.39.39-.39 1.02 0 1.41l2.34 2.34c.39.39 1.02.39 1.41 0L16.7 11.05c.39-.39.39-1.02 0-1.41l-2.33-2.35z"/>
+                            </svg>
+                        </div>
                         <h3>Monte</h3>
                         <p>Monte facilmente seguindo nossas instruções. Prestamos suporte via whatsapp.</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon"><i class="fas fa-heart"></i></div>
+                        <div class="step-icon">
+                            <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
                         <h3>Celebre</h3>
                         <p>Aproveite sua festa com tranquilidade e aproveite um ambiente super instagramável para registrar suas memórias!</p>
                     </div>
                     <div class="step">
-                        <div class="step-icon"><i class="fas fa-undo-alt"></i></div>
+                        <div class="step-icon">
+                            <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/>
+                            </svg>
+                        </div>
                         <h3>Faça a Entrega</h3>
                         <p>Período de até <strong>TRÊS dias úteis após sua festa.</strong></p>
                     </div>
@@ -347,11 +381,11 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Avaliações de Clientes</h2>
             <div class="rating-stars" data-aos="fade-up">
-                <span class="star"><i class="fas fa-star"></i></span>
-                <span class="star"><i class="fas fa-star"></i></span>
-                <span class="star"><i class="fas fa-star"></i></span>
-                <span class="star"><i class="fas fa-star"></i></span>
-                <span class="star"><i class="fas fa-star"></i></span>
+                <span class="star"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="fill:#f5a623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="star"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="fill:#f5a623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="star"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="fill:#f5a623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="star"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="fill:#f5a623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+                <span class="star"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="fill:#f5a623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
                 <span class="rating-text">5.0 - Excelente</span>
             </div>
             <p data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 20px;">
@@ -361,7 +395,7 @@
                     Ver Avaliações no Google
                 </a>
             </p>
-          </div>
+        </div>
     </section>
 
     <section id="contato" class="contato">
@@ -370,7 +404,9 @@
             <div class="contato-content">
                 <div class="contato-info" data-aos="fade-right">
                     <div class="contato-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
                         <div>
                             <h3>Endereço</h3>
                             <p>Rua Sargento José de Paula, 247 - Barueri, SP</p>
@@ -388,7 +424,9 @@
                     </div>
                 </div>
                 <div class="contato-item">
-                    <i class="fas fa-clock"></i>
+                    <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                    </svg>
                     <div><br>
                         <h3>Horário de Atendimento</h3>
                         <p>Segunda à Quinta-feira: das 09:00h às 18:00h.<br> Sexta-feira: 09:00 às 22:00<br>Sábado: 9h às 13h</p>
@@ -404,9 +442,15 @@
                         Jandira e Itapevi que buscam praticidade e qualidade na decoração de suas festas.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/people/Pips-Pegue-e-Monte-sua-festa/61577691561011/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="whatsapp-conversion.html" target="_blank" rel="noopener" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" title="Instagram">
+                            <svg class="icon-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/people/Pips-Pegue-e-Monte-sua-festa/61577691561011/" target="_blank" rel="noopener" title="Facebook">
+                            <svg class="icon-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="whatsapp-conversion.html" target="_blank" rel="noopener" title="Whatsapp">
+                            <svg class="icon-svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -420,27 +464,27 @@
             <div class="instagram-grid" data-aos="fade-up">
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
                     <img src="images/chapeuzinho.webp" alt="Decoração Chapéuzinho Vermelho - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
-                    <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+                    <div class="insta-overlay"><svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
                     <img src="images/decoracao_aniversario_adulto_pips_pegue_monte_barueri_alphaville_bethaville_cajamar_aldeia_da_serra.webp" alt="Decoração Aniversário Adulto - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
-                    <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+                    <div class="insta-overlay"><svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
                     <img src="images/chabebeazul.webp" alt="Decoração Chá de Bebê Azul - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
-                    <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+                    <div class="insta-overlay"><svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
                     <img src="images/bodas_de_ouro_cajamar_polvilho_jordanesia_alphaville_bethaville_pips.webp" alt="Decoração Bodas de Ouro - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
-                    <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+                    <div class="insta-overlay"><svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
                     <img src="images/futebol.webp" alt="Decoração Tema Futebol - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
-                    <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+                    <div class="insta-overlay"><svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
                 </a>
                 <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" class="insta-item">
                     <img src="images/aniversario-cajamar-alphaville-bethaville-grennvilee-barueri-pips-pegue-monte1.webp" alt="Decoração Aniversário Pool Party - Pips Pegue Monte Barueri" loading="lazy" width="400" height="400">
-                    <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+                    <div class="insta-overlay"><svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
                 </a>
             </div>
         </div>
@@ -465,23 +509,43 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 PIPS Pegue Monte. Todos os direitos reservados. Desenvolvido por @rodrigoaugustofarol .</p>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/people/Pips-Pegue-e-Monte-sua-festa/61577691561011/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="whatsapp-conversion.html" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" title="Instagram"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10A5 5 0 0112 7zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+                    <a href="https://www.facebook.com/people/Pips-Pegue-e-Monte-sua-festa/61577691561011/" target="_blank" rel="noopener" title="Facebook"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+                    <a href="whatsapp-conversion.html" target="_blank" rel="noopener" title="WhatsApp"><svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     <script src="js/script-optimized.js" defer></script>
     <script src="js/cookies-lgpd.js" defer></script>
 
-    <!-- CORREÇÃO 4: Elfsight removido daqui — o lazy já está no script-optimized.js -->
-
     <script>
+        (function() {
+            function initAOS() {
+                var els = document.querySelectorAll('[data-aos]');
+                var delays = { '100': 100, '200': 200, '300': 300, '400': 400 };
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            var el = entry.target;
+                            var delay = delays[el.getAttribute('data-aos-delay')] || 0;
+                            setTimeout(function() { el.classList.add('aos-animate'); }, delay);
+                            observer.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                els.forEach(function(el) { observer.observe(el); });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAOS);
+            } else {
+                initAOS();
+            }
+        })();
+
         function copiarEndereco() {
-            const texto = "Rua Sargento José de Paula, 247 - Barueri, SP";
+            var texto = "Rua Sargento José de Paula, 247 - Barueri, SP";
             navigator.clipboard.writeText(texto).then(function() {
                 alert("Endereço copiado com sucesso!");
             }, function() {
