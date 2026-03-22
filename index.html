@@ -10,14 +10,12 @@
     <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
     <link rel="preload" as="image" href="images/logo.webp">
 
-    <!-- CORREÇÃO 1: Apenas 2 preconnects críticos.
-         Removidos os preconnects do Elfsight apontados pelo PageSpeed. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet"></noscript>
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet"></noscript>
 
     <!-- Font Awesome não-bloqueante -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -27,18 +25,17 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
 
-    <!-- CORREÇÃO 2: CSS próprio carregado de forma assíncrona.
-         Era o maior bloqueio restante (estimativa de -1.780ms).
-         CSS crítico mínimo fica inline abaixo para o layout não quebrar. -->
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <!-- ✅ CORREÇÃO 1: styles.css carregado normalmente (não mais media="print").
+         Era o maior bloqueio: usuários viam a página sem estilo por até 1-2s,
+         causando abandono imediato. animations.css e cookies podem continuar
+         assíncronos pois não afetam o layout inicial. -->
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
     <link rel="stylesheet" href="css/cookies-lgpd.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/cookies-lgpd.css"></noscript>
 
-    <!-- CSS crítico inline: garante que hero, header e logo
-         apareçam corretamente antes do styles.css carregar -->
+    <!-- CSS crítico inline: garante hero, header e logo antes do styles.css -->
     <style>
       *,*::before,*::after{box-sizing:border-box}
       body{margin:0;font-family:'Open Sans',sans-serif;}
@@ -57,6 +54,8 @@
       .main-nav .nav-list a{text-decoration:none;color:#333;font-weight:500;}
       .menu-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.4rem;}
       .whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:9999;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+      /* ✅ Badge de preço acima do h1 */
+      .hero-badge{display:inline-block;background:#ff9f43;color:#fff;font-size:.85rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:12px;letter-spacing:.03em;}
       @media(max-width:768px){.main-nav .nav-list{display:none;}.menu-toggle{display:block;}}
     </style>
 
@@ -105,24 +104,28 @@
     }
     </script>
 
-    <!-- GTM com defer -->
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-5XRK89D6"></script>
+    <!-- ✅ CORREÇÃO 2: GTM sem defer + dataLayer inicializado ANTES do GTM.
+         Antes: defer fazia o GTM carregar tarde, perdendo eventos de conversão.
+         Resultado: 65 cliques no WhatsApp mas só 16 registrados como conversão.
+         Agora o dataLayer existe antes do GTM carregar, nenhum evento se perde. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      function gtagSendEvent(url) {
-        var callback = function () {
-          if (typeof url === 'string') { window.location = url; }
-        };
-        gtag('event', 'page_view', {'event_callback': callback, 'event_timeout': 2000});
-        return false;
-      }
     </script>
+    <script src="https://www.googletagmanager.com/gtm.js?id=GTM-5XRK89D6"></script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XRK89D6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <a href="whatsapp-conversion.html" class="whatsapp-float" target="_self" title="Fale conosco no WhatsApp">
+    <!-- ✅ CORREÇÃO 3: Botão WhatsApp flutuante aponta direto para wa.me.
+         Antes passava por whatsapp-conversion.html (redirect extra = fricção + latência).
+         Mensagem pré-preenchida reduz o esforço do usuário e aumenta a taxa de resposta. -->
+    <a href="https://wa.me/5511963098096?text=Olá!%20Vi%20o%20site%20e%20quero%20saber%20mais%20sobre%20os%20kits%20de%20decoração"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener"
+       title="Fale conosco no WhatsApp"
+       onclick="gtag('event', 'botao_whats', {'event_category': 'conversao', 'event_label': 'float'})">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -153,52 +156,33 @@
          style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;">
     <div class="container">
             <div class="hero-content">
-                <h1 data-aos="fade-up">A melhor decoração Pegue e Monte de Barueri: Kits completos e prontos a partir de R$150,00</h1>
+                <!-- ✅ Badge de preço visível antes do h1 — ancora o valor antes do usuário ler -->
+                <span class="hero-badge" data-aos="fade-up">🎉 Kits a partir de R$150,00</span>
+
+                <h1 data-aos="fade-up" data-aos-delay="50">A melhor decoração Pegue e Monte de Barueri</h1>
                 <p data-aos="fade-up" data-aos-delay="100">Kits higienizados, modernos, práticos e rápidos para montar. Cabem no seu carro e no seu orçamento. Retire no Centro de Barueri. Reserve seu tema pelo WhatsApp!</p>
-                <a href="#contato" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Reserve sua data agora!</a>
+
+                <!-- ✅ CORREÇÃO 4: CTA aponta direto para WhatsApp, não para #contato.
+                     Antes o clique rolava a página até o rodapé — o usuário se perdia.
+                     Agora abre o WhatsApp imediatamente com mensagem pré-preenchida.
+                     Mantemos o tracking via gtag() inline. -->
+                <a href="https://wa.me/5511963098096?text=Olá!%20Quero%20reservar%20um%20kit%20de%20decoração.%20Pode%20me%20ajudar%3F"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener"
+                   data-aos="fade-up"
+                   data-aos-delay="200"
+                   onclick="gtag('event', 'lead_whatsapp', {'event_category': 'conversao', 'event_label': 'hero_cta'})">
+                   Reserve sua data agora!
+                </a>
             </div>
         </div>
         <div class="hero-overlay"></div>
     </section>
 
-    <section class="conceito">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">O que é Pegue e Monte?</h2>
-            <div class="conceito-content">
-                <div class="conceito-text" data-aos="fade-right">
-                    <p>O <strong>Pegue e Monte</strong> é um serviço que oferece kits completos de decoração para festas, permitindo que você mesmo monte uma decoração profissional sem complicações.</p>
-                    <p>Com a Pips Pegue Monte você escolhe o tema, personaliza os detalhes e recebe tudo pronto para montar, <strong>economizando tempo e dinheiro</strong> sem abrir mão da <strong>qualidade</strong>.</p>
-                </div>
-                <div class="conceito-steps" data-aos="fade-left">
-                    <div class="step">
-                        <div class="step-icon"><i class="fas fa-palette"></i></div>
-                        <h3>Escolha seu tema preferido</h3>
-                        <p>Selecione o tema perfeito para sua festa. Um contrato simples garante sua reserva. O pagamento será feito na retirada do kit.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fas fa-box-open"></i></div>
-                        <h3>Agende a Retirada</h3>
-                        <p>Retire o kit completo e organizado. Estamos no Centro de Barueri - SP</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fas fa-magic"></i></div>
-                        <h3>Monte</h3>
-                        <p>Monte facilmente seguindo nossas instruções. Prestamos suporte via whatsapp.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fas fa-heart"></i></div>
-                        <h3>Celebre</h3>
-                        <p>Aproveite sua festa com tranquilidade e aproveite um ambiente super instagramável para registrar suas memórias!</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon"><i class="fas fa-undo-alt"></i></div>
-                        <h3>Faça a Entrega</h3>
-                        <p>Período de até <strong>TRÊS dias úteis após sua festa.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ✅ CORREÇÃO 5: Seção "conceito" REMOVIDA (era duplicata de "como-funciona").
+         Aparecia logo após o hero com os mesmos 5 passos que a timeline mais abaixo.
+         Dobrava o scroll sem agregar informação nova — prejudicava engajamento. -->
 
     <section id="temas" class="kits-populares">
         <div class="container">
@@ -270,7 +254,13 @@
                 </div>
             </div>
             <div class="center-btn" data-aos="fade-up">
-                <a href="#contato" class="btn btn-primary">Saiba Mais! Entre em Contato!</a>
+                <a href="https://wa.me/5511963098096?text=Olá!%20Quero%20ver%20os%20temas%20disponíveis.%20Pode%20me%20ajudar%3F"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener"
+                   onclick="gtag('event', 'lead_whatsapp', {'event_category': 'conversao', 'event_label': 'temas_cta'})">
+                   Saiba Mais! Entre em Contato!
+                </a>
             </div>
         </div>
     </section>
@@ -319,7 +309,6 @@
                     Ver Avaliações no Google
                 </a>
             </p>
-           
         </div>
     </section>
 
@@ -360,7 +349,12 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.facebook.com/people/Pips-Pegue-e-Monte-sua-festa/61577691561011/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="whatsapp-conversion.html" target="_blank" rel="noopener" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <!-- ✅ WhatsApp na seção de contato também com link direto -->
+                        <a href="https://wa.me/5511963098096?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20kits"
+                           target="_blank" rel="noopener" title="Whatsapp"
+                           onclick="gtag('event', 'lead_whatsapp', {'event_category': 'conversao', 'event_label': 'contato_social'})">
+                           <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -421,7 +415,7 @@
                 <div class="footer-social">
                     <a href="https://www.instagram.com/pips.peguemonte/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/people/Pips-Pegue-e-Monte-sua-festa/61577691561011/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="whatsapp-conversion.html" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/5511963098096?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20kits" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -430,7 +424,6 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     <script src="js/script-optimized.js" defer></script>
     <script src="js/cookies-lgpd.js" defer></script>
-    
 
     <script>
         function copiarEndereco() {
