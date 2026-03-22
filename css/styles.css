@@ -30,7 +30,8 @@
     --shadow-sm: 0 0.125rem 0.312rem rgba(0,0,0,0.1);
     --shadow-md: 0 0.312rem 0.938rem rgba(0,0,0,0.1);
     --shadow-lg: 0 0.625rem 1.562rem rgba(0,0,0,0.15);
-    --shadow-text: 0.125rem 0.125rem 0.250rem rgba(0,0,0,0.3);
+    /* ✅ text-shadow reforçado para fotos claras */
+    --shadow-text: 0 2px 4px rgba(0,0,0,0.8), 0 4px 16px rgba(0,0,0,0.5);
     --transition: all 0.3s ease;
 }
 
@@ -223,7 +224,7 @@ strong { font-weight: 700; color: var(--primary-dark); }
 .hero {
     height: 100vh;
     min-height: 37.5rem;
-    background-image: url('../images/hero-bg.jpg');
+    background-image: url('../images/hero.webp');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -234,11 +235,21 @@ strong { font-weight: 700; color: var(--primary-dark); }
     margin-top: 5rem;
 }
 
+/* ✅ CORREÇÃO: overlay mais escuro com gradiente direcional.
+   O valor original rgba(0,0,0,0.4–0.6) era insuficiente para a foto atual
+   (decoração bege/branca com centro muito claro).
+   O gradiente concentra a escuridão onde o texto está (esquerda/centro)
+   e alivia nas bordas, preservando a beleza da foto. */
 .hero-overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.58) 50%,
+        rgba(0,0,0,0.42) 100%
+    );
     z-index: 1;
 }
 
@@ -251,18 +262,30 @@ strong { font-weight: 700; color: var(--primary-dark); }
     padding: var(--spacing-md);
 }
 
+/* ✅ CORREÇÃO: cor explícita #fff + text-shadow duplo.
+   Antes: herdava color:inherit e text-shadow fraco (0.125rem blur).
+   Agora: branco garantido + sombra em duas camadas (nítida + difusa)
+   para legibilidade em qualquer foto de fundo. */
 .hero h1 {
     font-size: 3rem;
     margin-bottom: var(--spacing-md);
-    color: var(--light);
-    text-shadow: var(--shadow-text);
+    color: #ffffff;
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.95),
+        0 4px 20px rgba(0,0,0,0.7);
     letter-spacing: 0.063rem;
 }
 
+/* ✅ CORREÇÃO: parágrafo do hero com cor e sombra explícitas.
+   opacity:.9 sobre branco em fundo claro = cinza — removido.
+   Substituído por color:#f0f0f0 + text-shadow. */
 .hero p {
     font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
-    text-shadow: var(--shadow-text);
+    color: #f0f0f0;
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.95),
+        0 3px 12px rgba(0,0,0,0.65);
 }
 
 /* ===== CONCEITO ===== */
