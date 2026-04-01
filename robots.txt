@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Bloquear apenas arquivos desnecessários
-Disallow: /css/
-Disallow: /js/
-
-Sitemap: https://pipspeguemonte.com.br/sitemap.xml
