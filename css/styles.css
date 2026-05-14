@@ -175,7 +175,7 @@ strong {
 }
 
 .btn-primary {
-    background-color: var(--cta-orange);
+    background-color: var(--cta-green);
     color: var(--light);
     box-shadow: var(--shadow-sm);
     font-weight: 700;
