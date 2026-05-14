@@ -333,6 +333,7 @@ strong {
 
 .conceito-content {
     display: flex;
+    flex-direction:column;
     flex-wrap: wrap;
     gap: var(--spacing-lg);
     align-items: center;
