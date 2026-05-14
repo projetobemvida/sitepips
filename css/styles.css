@@ -11,7 +11,7 @@
     --secondary: #ffaaa5;
     --accent: #ffd3b6;
     --cta-orange: #ff9f43;
-    --cta-orange-hover: #ff7e1d;
+    --cta-green-hover: #00FF00;
     --yellow: #ffd3b6;
     --pink: #ffaaa5;
     --blue: #a8e6cf;
@@ -183,7 +183,7 @@ strong {
 }
 
 .btn-primary:hover {
-    background-color: var(--cta-orange-hover);
+    background-color: var(--cta-green-hover);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
@@ -258,12 +258,12 @@ strong {
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background-color: var(--cta-orange);
+    background-color: var(--cta-green);
     transition: var(--transition);
 }
 
 .nav-link:hover {
-    color: var(--cta-orange);
+    color: var(--cta-green);
 }
 
 .nav-link:hover::after {
@@ -506,7 +506,7 @@ strong {
     top: 0;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--cta-orange) 100%);
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--cta-green) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -719,7 +719,7 @@ strong {
 
 .contato-item i {
     font-size: 1.5rem;
-    color: var(--cta-orange);
+    color: var(--cta-green);
     margin-right: var(--spacing-sm);
     margin-top: 5px;
 }
@@ -744,7 +744,7 @@ strong {
 }
 
 .social-links a:hover {
-    background: linear-gradient(135deg, var(--cta-orange) 0%, var(--cta-orange-hover) 100%);
+    background: linear-gradient(135deg, var(--cta-green) 0%, var(--cta-green-hover) 100%);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
@@ -773,7 +773,7 @@ strong {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--cta-orange);
+    border-color: var(--cta-green);
     box-shadow: 0 0 5px rgba(255, 159, 67, 0.3);
 }
 
@@ -819,7 +819,7 @@ strong {
     left: 0;
     width: 50px;
     height: 2px;
-    background-color: var(--cta-orange);
+    background-color: var(--cta-green);
 }
 
 .footer-links ul li {
@@ -832,7 +832,7 @@ strong {
 }
 
 .footer-links ul li a:hover {
-    color: var(--cta-orange);
+    color: var(--cta-green);
     padding-left: 5px;
 }
 
@@ -873,7 +873,7 @@ strong {
 }
 
 .footer-social a:hover {
-    color: var(--cta-orange);
+    color: var(--cta-green);
 }
 
 /* ===== MODAL DE GALERIA ===== */
@@ -943,7 +943,7 @@ strong {
 }
 
 .modal-prev:hover, .modal-next:hover {
-    color: var(--cta-orange);
+    color: var(--cta-green);
 }
 
 /* ===== WHATSAPP FLUTUANTE MELHORADO ===== */
