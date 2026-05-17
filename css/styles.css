@@ -144,7 +144,7 @@ h4 { font-size: 1.5rem; }
     position: fixed;
     top: 0;
     left: 0;
-    width: auto;
+    width: 100%;
     background-color: var(--light);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
@@ -208,6 +208,11 @@ h4 { font-size: 1.5rem; }
     width: 3.125rem; /* 50px */
     height: 3.125rem;
     font-size: 1.5rem;
+}
+.timeline-item {
+    width: 100%; /* Garante que cada item da timeline ocupe 100% da largura disponível */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    /* Se houver padding horizontal significativo, considere ajustá-lo para valores menores em mobile */
 }
 
 /* ===== WHATSAPP FLUTUANTE ===== */
