@@ -234,12 +234,12 @@ h4 { font-size: 1.5rem; }
 
 /* ===== RESPONSIVIDADE (MEDIA QUERIES) ===== */
 
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
     h1 { font-size: 2.2rem; }
     .hero h1 { font-size: 2.2rem; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
     .header .container {
         justify-content: space-between;
         padding: 0 1rem;
@@ -264,7 +264,7 @@ h4 { font-size: 1.5rem; }
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
     h1 { font-size: 1.5rem; }
     .hero { margin-top: 5rem; min-height: 18.75rem; }
     .hero h1 { font-size: 1.5rem; }
