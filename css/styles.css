@@ -235,12 +235,12 @@ h4 { font-size: 1.5rem; }
 
 /* ===== RESPONSIVIDADE (MEDIA QUERIES) ===== */
 
-@media (max-width: 62rem) {
+@media (max-width: 72rem) {
     h1 { font-size: 2.2rem; }
     .hero h1 { font-size: 2.2rem; }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 58rem) {
     .header .container {
         justify-content: space-between;
         padding: 0 1rem;
