@@ -64,12 +64,14 @@ html {
 }
 
 body {
+    display:flex;
+    flex-direction: column;
     font-family: var(--font-body);
     color: var(--dark);
     line-height: 1.6;
     background-color: var(--light);
     overflow-x: hidden;
-    width: 100%;
+    
 }
 
 /* FIX 2: img E iframe com max-width:100%.
