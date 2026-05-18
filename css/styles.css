@@ -159,6 +159,7 @@ h4 { font-size: 1.5rem; }
 }
 
 .nav-link {
+    display:flex;
     padding: var(--spacing-sm);
     font-weight: 600;
     font-size: 1rem;
