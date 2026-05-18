@@ -155,7 +155,7 @@ h4 { font-size: 1.5rem; }
 /* FIX 3: width:100% explícito no header.
    position:fixed sem width:100% pode não ocupar toda a largura
    em alguns navegadores mobile, causando desalinhamento. */
-.header {
+.header scrolled {
     position: fixed;
     display: flex;
     top: 0;
@@ -169,9 +169,7 @@ h4 { font-size: 1.5rem; }
     z-index: 1000;
     padding: var(--spacing-xs) 0;
 }
-.header scrolled{
-    display:flex;
-    max-width: 100%;
+
 .logo-img {
     height: 7.5rem; /* 120px */
     width: 7.5rem;
