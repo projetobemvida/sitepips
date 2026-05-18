@@ -65,6 +65,7 @@ html {
 
 body {
     display:flex;
+    box-sizing: border-box;
     flex-direction: column;
     font-family: var(--font-body);
     color: var(--dark);
