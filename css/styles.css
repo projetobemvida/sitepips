@@ -66,6 +66,7 @@ html {
 .cookie-modal{
     display:flex;
     box-sizing:border-box;
+    max-width:100%;
 }
     
 body {
