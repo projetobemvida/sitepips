@@ -288,6 +288,14 @@ h4 { font-size: 1.5rem; }
 }
 .cookie-modal{
     max-width:90%;
+}.cookie-banner-text {
+        min-width: 100% !important; /* Força o texto a ocupar a largura disponível e empurrar os botões para baixo */
+    }
+    
+    .cookie-banner {
+        width: 90%; /* Garante que ele continue respeitando os 90% mesmo no mobile */
+        left: 50%;
+    }
 }
 
 @media (max-width: 68rem) {
@@ -321,7 +329,15 @@ h4 { font-size: 1.5rem; }
         bottom: 1.25rem; /* 20px */
         right: 1.25rem;  /* 20px */
         font-size: 1.8rem;
+    }.cookie-banner-text {
+        min-width: 100% !important; /* Força o texto a ocupar a largura disponível e empurrar os botões para baixo */
     }
+    
+    .cookie-banner {
+        width: 90%; /* Garante que ele continue respeitando os 90% mesmo no mobile */
+        left: 50%;
+    }
+}
 }
 
 @media (max-width: 20rem) {
@@ -348,6 +364,15 @@ h4 { font-size: 1.5rem; }
     }
     .cookie-modal{
     max-width:90%;
+}
+    .cookie-banner-text {
+        min-width: 100% !important; /* Força o texto a ocupar a largura disponível e empurrar os botões para baixo */
+    }
+    
+    .cookie-banner {
+        width: 90%; /* Garante que ele continue respeitando os 90% mesmo no mobile */
+        left: 50%;
+    }
 }
     
 }
