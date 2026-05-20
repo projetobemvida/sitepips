@@ -1,8 +1,3 @@
-Aqui está o seu arquivo CSS com todas as unidades de medida pixel (`px`) convertidas para `rem`, adotando o padrão de mercado onde $1\text{ rem} = 16\text{ px}$.
-
-Conforme solicitado, a largura máxima do modal e do banner foi ajustada para não ultrapassar **90% da largura da tela (`90vw` / `90%`)**, garantindo um comportamento responsivo e elegante em qualquer dispositivo.
-
-```css
 /* 
  * Sistema de Cookies LGPD - Estilos CSS
  * Compatível com o design existente do site PIPS Pegue Monte
