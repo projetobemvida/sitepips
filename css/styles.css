@@ -51,6 +51,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width:100%;
 }
 
 /* FIX 1: overflow-x também no html, não só no body.
