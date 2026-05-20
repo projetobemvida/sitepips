@@ -17,7 +17,7 @@ class CookieConsentManager {
                 enabled: true,
                 cookies: [
                     { name: 'pips_cookie_consent', purpose: 'Armazena suas preferências de cookies' },
-                    { name: 'PHPSESSID', purpose: 'Mantém sua sessão ativa no site' },
+                    { name: 'PHPSESSID', purpose: 'Mantém sua sessão activa no site' },
                     { name: 'csrf_token', purpose: 'Proteção contra ataques CSRF' }
                 ]
             },
@@ -531,18 +531,18 @@ class CookieConsentManager {
         // Adicionar estilos inline
         Object.assign(notification.style, {
             position: 'fixed',
-            top: '20px',
-            right: '20px',
+            top: '1.25rem',
+            right: '1.25rem',
             background: type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3',
             color: 'white',
-            padding: '15px 20px',
-            borderRadius: '8px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            padding: '0.9375rem 1.25rem',
+            borderRadius: '0.5rem',
+            boxShadow: '0 0.25rem 0.75rem rgba(0,0,0,0.15)',
             zIndex: '10001',
             transform: 'translateX(100%)',
             transition: 'transform 0.3s ease',
-            maxWidth: '300px',
-            fontSize: '14px'
+            maxWidth: '18.75rem',
+            fontSize: '0.875rem'
         });
         
         document.body.appendChild(notification);
@@ -630,4 +630,3 @@ window.updateCookieConsent = function(category, enabled) {
 window.getCookieConsentStatus = function() {
     return window.cookieManager ? window.cookieManager.getConsentStatus() : {};
 };
-
