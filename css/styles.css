@@ -197,7 +197,9 @@ h4 { font-size: 1.5rem; }
     padding: var(--spacing-xs) 0;
 }
 
-.logo-img {
+.logo-img { 
+    display:flex;
+    justify-content:center;
     height: 7.5rem; /* 120px */
     width: 7.5rem;
 }
