@@ -71,6 +71,22 @@ html {
     box-sizing:border-box;
     max-width:100%;
 }
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 50%; /* Joga o início do banner no meio da tela */
+    width: 90%;
+    max-width: 90vw;
+    background: linear-gradient(135deg, var(--cookie-light) 0%, var(--cookie-gray) 100%);
+    border-top: 0.1875rem solid var(--cookie-primary);
+    box-shadow: var(--cookie-shadow);
+    z-index: var(--cookie-z-index);
+    padding: 1.25rem;
+    /* Altera o transform para cuidar da animação de sumir E da centralização ao mesmo tempo */
+    transform: translate(-50%, 100%); 
+    transition: var(--cookie-transition);
+    font-family: 'Open Sans', sans-serif;
+}
     
 body {
     display:flex;
