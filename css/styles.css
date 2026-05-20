@@ -343,4 +343,8 @@ h4 { font-size: 1.5rem; }
     .container {
         padding: 0 0.9375rem; /* 15px */
     }
+    .cookie-modal{
+    max-width:90%;
+}
+    
 }
