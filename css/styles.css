@@ -3,6 +3,9 @@
 */
 
 /* ===== VARIÁVEIS ===== */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
 :root {
     /* Cores principais */
     --primary: #a8e6cf;
