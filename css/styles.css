@@ -64,7 +64,8 @@ html {
     overflow-x: hidden;
 }
 .cookie-modal{
-    max-width:100%;
+    display:flex;
+    box-sizing:border-box;
 }
     
 body {
