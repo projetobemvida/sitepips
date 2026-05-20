@@ -4,6 +4,10 @@
  */
 
 /* ===== VARIÁVEIS PARA COOKIES ===== */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
 :root {
     --cookie-primary: #a8e6cf;
     --cookie-secondary: #ffaaa5;
