@@ -93,9 +93,8 @@ video {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 0 1.25rem; /* 20px */
+    max-width: 100%;
+
     flex-wrap: wrap;
   
 }
