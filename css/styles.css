@@ -181,6 +181,8 @@ h4 { font-size: 1.5rem; }
    em alguns navegadores mobile, causando desalinhamento. */
 .header.scrolled {
     display:flex;
+    justify-content:center;
+    align-itens:center;
 }
 .header {
     position: fixed;
@@ -188,8 +190,6 @@ h4 { font-size: 1.5rem; }
     top: 0;
     left: 0;
     width: 100%;
-    justify-content:center;
-    align-items:center;
     box-sizing: border-box;
     background-color: var(--light);
     box-shadow: var(--shadow-sm);
