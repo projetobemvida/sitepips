@@ -201,8 +201,8 @@ h4 { font-size: 1.5rem; }
     display:flex;
     justify-content:center;
     align-itens:center;
-    height: 7.5rem; /* 120px */
-    width: 7.5rem;
+    height: 6rem; /* 120px */
+    width: 6rem;
 }
 
 .nav-link {
